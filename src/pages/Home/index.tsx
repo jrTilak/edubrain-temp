@@ -1,37 +1,43 @@
 import heroImage from "@/assets/images/Hero Image.svg";
 import aboutUsImage from "@/assets/images/image 45.png";
-import PrimaryButton from "@/components/buttons/PrimaryButton";
 import { Link } from "react-router-dom";
-import AboutUsCard from "./AboutUsCard";
-import buttons from "@/assets/images/buttons.svg";
-import uxDesign from "@/assets/images/UX design.png";
-import userSquare2 from "@/assets/images/user-square2.svg";
-import ClockIMg from "@/assets/images/clock.svg";
-import SecondaryButton from "@/components/buttons/SecondaryButton";
+import DescriptionCard from "./DescriptionCard";
 import RaysLine1 from "@/assets/icons/rays-line-1.svg";
 import RaysLine2 from "@/assets/icons/rays-line-2.svg";
 import RaysLine3 from "@/assets/icons/rays-line-3.svg";
+// import RaysLine4 from "@/assets/icons/rays-line-4.svg";
 import heroImageOverlay from "@/assets/images/hero image overlay.svg";
 import hearGlow from "@/assets/images/heart-glow.svg";
+import ABOUT_US from "@/assets/data/aboutUs";
+import CourseSection from "./CourseSection";
+import SectionHeader from "./SectionHeader";
+import CERTIFICATION_AND_ACHIEVEMENT from "@/assets/data/certificationAndAchievement";
+import { INTERNSHIP_OPPORTUNITIES } from "@/assets/data/internshipOpportunites";
+import InternshipOpportunities from "./InternshipOpportunities";
 const Home = () => {
   return (
-    <div className=" flex flex-col gap-32 sm:gap-48">
+    <div className=" flex flex-col gap-24 xl:gap-48 overflow-hidden">
       {/* rays */}
       <img
         src={RaysLine1}
-        className="absolute top-[550px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] xl:top-[700px] left-0"
+        className="absolute top-[550px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] w-fit xl:top-[700px] left-0"
         alt=""
       />
       <img
         src={RaysLine2}
-        className="absolute top-[580px] sm:top-[500px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] xl:top-[220px] right-0"
+        className="absolute top-[580px] sm:top-[500px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] w-fit xl:top-[220px] right-0"
         alt=""
       />
       <img
         src={RaysLine3}
-        className="absolute top-[820px] sm:top-[900px] lg:top[950px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] xl:top-[750px] right-0"
+        className="absolute top-[820px] sm:top-[900px] lg:top[950px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] w-fit xl:top-[750px] right-0"
         alt=""
       />
+      {/* <img
+        src={RaysLine4}
+        className="absolute w-[200px] sm:w-[500px] top-[2300px] sm:top-[2200px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] left-0"
+        alt=""
+      /> */}
 
       {/* // Hero Section */}
       <section className="flex flex-col pt-[120px] justify-center items-center wrapper my-auto gap-12 xl:flex-row xl:gap-28">
@@ -68,35 +74,29 @@ const Home = () => {
           {/* // overlay */}
           <img
             src={heroImageOverlay}
-            className="absolute inset-1/4 w-fit aspect-square h-[500px] object-contain object-center"
+            className="absolute -top-14 sm:inset-1/4 w-fit aspect-square h-[500px] object-contain object-center mix-blend-color-dodge z-20"
             alt=""
           />
         </div>
       </section>
       {/* //about us */}
-      <section className="min-h-screen flex flex-col items-center justify-center gap-12">
-        <div className="flex flex-col gap-6 max-w-[820px] items-center justify-center text-center">
-          <div>
-            <span className="text-blue text-2xl">About us</span>
-            <h2 className="heading">Welcome to Edubraining</h2>
-          </div>
-          <p className="p px-6">
-            Welcome to Edubraining, Your Gateway to Future Tech Excellence! At
-            Edubraining, we believe in empowering aspiring minds to become the
-            tech leaders of tomorrow.
-          </p>
-        </div>
-        <div className="flex items-center justify-center w-full xl:relative min-h-[800px]">
+      <section className="flex flex-col items-center justify-center gap-12 wrapper">
+        <SectionHeader
+          header="About us"
+          title={ABOUT_US.title}
+          desc={ABOUT_US.desc}
+        />
+        <div className="flex items-center justify-center w-full xl:relative xl:min-h-[800px]">
           <div className="flex flex-col px-4 gap-4 items-center xl:absolute xl:gap-[80px]">
             <div className="flex flex-col gap-4 md:flex-row xl:gap-[150px]">
-              <AboutUsCard />
-              <AboutUsCard />
+              <DescriptionCard {...ABOUT_US.cards[0]} />
+              <DescriptionCard {...ABOUT_US.cards[1]} />
             </div>
-            <div className="flex flex-col gap-4 md:flex-row xl:gap-[350px]">
-              <AboutUsCard />
-              <AboutUsCard />
+            <div className="flex flex-col gap-4 md:flex-row xl:gap-[400px]">
+              <DescriptionCard {...ABOUT_US.cards[2]} />
+              <DescriptionCard {...ABOUT_US.cards[3]} />
             </div>
-            <AboutUsCard />
+            <DescriptionCard {...ABOUT_US.cards[4]} />
           </div>
           <img src={aboutUsImage} className="hidden xl:block" />
           {/* // hear glow at center  */}
@@ -104,74 +104,40 @@ const Home = () => {
             src={hearGlow}
             className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
             alt=""
-            
+          />
         </div>
       </section>
 
       {/* Our Courses */}
-      <section className="min-h-screen flex flex-col items-center justify-center hidden">
-        <div className="flex flex-col gap-6 max-w-[820px] items-center justify-center text-center">
-          <div>
-            <span className="text-blue text-2xl">Our Courses</span>
-            <h2 className="heading">
-              Unlock Your Potential by our Tech Courses
-            </h2>
-          </div>
-          <p className="p">
-            Explore tech excellence with Edubraining courses. Transformative
-            learning for a future of possibilities.
-          </p>
-        </div>
-        <div className="flex items-center justify-between h-max gap-40">
-          <div className="flex flex-col gap-6 max-w-[515px]">
-            <div>
-              <span className="text-blue text-2xl">Visual Art based</span>
-              <h2 className="heading">UI/UX Design</h2>
-            </div>
-            <p className="p">
-              Embark on a creative journey with our UI/UX design course, where
-              you'll craft exceptional user experiences. Through hands-on
-              learning, translate theory into real-world impact, building a
-              portfolio that catapults your career in design. Join us and shape
-              the future of user-centric innovation.
-            </p>
-            <div className="flex gap-3 items-end">
-              <span className="text-white text-3xl font-semibold">₹4500</span>
-              <span className="text-[#AEABB2] text-lg line-through">₹5000</span>
-              <span className="text-lg text-blue">(10%)</span>
-            </div>
-            <div className="flex gap-6">
-              <div className="flex gap-1.5 items-center justify-center">
-                <img src={userSquare2} className="w-6 h-6 mr-1" />
-                <span className="text-white text-2xl font-semibold">67</span>
-                <span className="text-[#E0DCE5] text-base self-end">
-                  Lectures
-                </span>
-              </div>
-              <div className="flex gap-1.5 items-center justify-center">
-                <img src={ClockIMg} className="w-6 h-6 mr-1" />
-                <span className="text-white text-2xl font-semibold">
-                  31h 46m
-                </span>
-                <span className="text-[#E0DCE5] text-base self-end">Time</span>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-6 max-w-[414px]">
-              <SecondaryButton>Let’s explore it!</SecondaryButton>
-              <PrimaryButton>Enroll Now</PrimaryButton>
-              <PrimaryButton className="col-span-2 bg-[#FF9300]">
-                Get more discount!
-              </PrimaryButton>
-            </div>
-          </div>
-          <div className="flex flex-col items-end gap-4">
-            {/* buttons */}
-            <img src={buttons} alt="" className="h-[40px]" />
-            {/* images */}
-            <img src={uxDesign} alt="" />
-          </div>
+      <section className="flex flex-col items-center justify-center wrapper overflow-hidden sm:overflow-visible">
+        <SectionHeader
+          header="Our Courses"
+          title="Unlock Your Potential by our <br/> Tech Courses"
+          desc="Explore tech excellence with Edubraining courses. Transformative learning for a future of possibilities."
+        />
+        <CourseSection />
+      </section>
+
+      {/* Process  todo */}
+      <section className="flex flex-col items-center justify-center wrapper overflow-hidden sm:overflow-visible">
+        <SectionHeader header="Process" title="Your path to success" />
+      </section>
+
+      {/* Certification  */}
+      <section className="flex flex-col items-center justify-center wrapper overflow-hidden sm:overflow-visible">
+        <SectionHeader {...CERTIFICATION_AND_ACHIEVEMENT} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mt-6">
+          {CERTIFICATION_AND_ACHIEVEMENT.cards.map((card, i) => (
+            <DescriptionCard key={i} {...card} />
+          ))}
         </div>
       </section>
+
+      {/* internship opportunities6 */}
+      <InternshipOpportunities />
+
+
+      <section className="h-screen"></section>
     </div>
   );
 };
