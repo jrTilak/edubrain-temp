@@ -24,7 +24,7 @@ const InternshipOpportunities = () => {
             >
               <h3
                 className={cn(
-                  "text-xl sm:text-2xl font-semibold",
+                  "text-xl sm:text-2xl font-semibold font-Montserrat",
                   activeIndex === i ? "text-[#246BFD]" : "text-[#7A7C80]"
                 )}
               >

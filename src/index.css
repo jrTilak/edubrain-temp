@@ -14,10 +14,8 @@
   @apply text-neutral-40 text-[12px] sm:text-[14px] leading-[18px] xl:text-base;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 * {
-  font-family: "Rubik", sans-serif;
-  scroll-behavior: smooth;
+  @apply font-Roboto;
 }
 
 *::-webkit-scrollbar {

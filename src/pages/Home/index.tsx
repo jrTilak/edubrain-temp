@@ -14,6 +14,7 @@ import SectionHeader from "./SectionHeader";
 import CERTIFICATION_AND_ACHIEVEMENT from "@/assets/data/certificationAndAchievement";
 import { INTERNSHIP_OPPORTUNITIES } from "@/assets/data/internshipOpportunites";
 import InternshipOpportunities from "./InternshipOpportunities";
+import CTABanner from "./CTABanner";
 const Home = () => {
   return (
     <div className=" flex flex-col gap-24 xl:gap-48 overflow-hidden">
@@ -136,7 +137,8 @@ const Home = () => {
       {/* internship opportunities6 */}
       <InternshipOpportunities />
 
-
+      {/* cta banner */}
+      <CTABanner />
       <section className="h-screen"></section>
     </div>
   );

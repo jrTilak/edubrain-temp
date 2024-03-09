@@ -40,6 +40,9 @@ export default {
         Roboto: ["Roboto", "sans-serif"],
         Montserrat: ["Montserrat", "sans-serif"],
       },
+      screens: {
+        xs: "475px",
+      },
     },
   },
   plugins: [],
