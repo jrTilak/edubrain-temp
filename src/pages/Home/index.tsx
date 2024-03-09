@@ -15,6 +15,8 @@ import CERTIFICATION_AND_ACHIEVEMENT from "@/assets/data/certificationAndAchieve
 import { INTERNSHIP_OPPORTUNITIES } from "@/assets/data/internshipOpportunites";
 import InternshipOpportunities from "./InternshipOpportunities";
 import CTABanner from "./CTABanner";
+import FAQ from "@/assets/data/faq";
+import FAQSection from "./FAQSection";
 const Home = () => {
   return (
     <div className=" flex flex-col gap-24 xl:gap-48 overflow-hidden">
@@ -139,6 +141,10 @@ const Home = () => {
 
       {/* cta banner */}
       <CTABanner />
+
+      {/* faq */}
+      <FAQSection />
+
       <section className="h-screen"></section>
     </div>
   );
