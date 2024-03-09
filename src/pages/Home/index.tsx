@@ -145,7 +145,8 @@ const Home = () => {
       {/* faq */}
       <FAQSection />
 
-      <section className="h-screen"></section>
+      {/* // for margin */}
+      <section className="h-[30vh]"></section>
     </div>
   );
 };
