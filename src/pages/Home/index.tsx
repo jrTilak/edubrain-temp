@@ -12,11 +12,10 @@ import ABOUT_US from "@/assets/data/aboutUs";
 import CourseSection from "./CourseSection";
 import SectionHeader from "./SectionHeader";
 import CERTIFICATION_AND_ACHIEVEMENT from "@/assets/data/certificationAndAchievement";
-import { INTERNSHIP_OPPORTUNITIES } from "@/assets/data/internshipOpportunites";
 import InternshipOpportunities from "./InternshipOpportunities";
 import CTABanner from "./CTABanner";
-import FAQ from "@/assets/data/faq";
 import FAQSection from "./FAQSection";
+import Timeline from "./Timeline";
 const Home = () => {
   return (
     <div className=" flex flex-col gap-24 xl:gap-48 overflow-hidden">
@@ -82,6 +81,7 @@ const Home = () => {
           />
         </div>
       </section>
+
       {/* //about us */}
       <section className="flex flex-col items-center justify-center gap-12 wrapper">
         <SectionHeader
@@ -124,6 +124,7 @@ const Home = () => {
       {/* Process  todo */}
       <section className="flex flex-col items-center justify-center wrapper overflow-hidden sm:overflow-visible">
         <SectionHeader header="Process" title="Your path to success" />
+        <Timeline />
       </section>
 
       {/* Certification  */}
