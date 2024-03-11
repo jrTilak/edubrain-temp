@@ -1,7 +1,5 @@
 import userSquare2 from "@/assets/images/user-square2.svg";
 import ClockIMg from "@/assets/images/clock.svg";
-import SecondaryButton from "@/components/buttons/SecondaryButton";
-import PrimaryButton from "@/components/buttons/PrimaryButton";
 import rightArrow from "@/assets/icons/right-arrow.svg";
 import leftArrow from "@/assets/icons/left-arrow.svg";
 import play from "@/assets/icons/play.svg";

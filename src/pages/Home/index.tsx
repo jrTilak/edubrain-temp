@@ -16,7 +16,18 @@ import InternshipOpportunities from "./InternshipOpportunities";
 import CTABanner from "./CTABanner";
 import FAQSection from "./FAQSection";
 import Timeline from "./Timeline";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 const Home = () => {
+  const aboutUsRef = useRef(null);
+  const aboutUsInView = useInView(aboutUsRef, {
+    once: true,
+  });
+  const aboutUsImgRef = useRef(null);
+  const aboutUsImgInView = useInView(aboutUsImgRef, {
+    once: true,
+  });
+
   return (
     <div className=" flex flex-col gap-24 xl:gap-48 overflow-hidden">
       {/* rays */}
@@ -90,7 +101,13 @@ const Home = () => {
           desc={ABOUT_US.desc}
         />
         <div className="flex items-center justify-center w-full xl:relative xl:min-h-[800px]">
-          <div className="flex flex-col px-4 gap-4 items-center xl:absolute xl:gap-[80px]">
+          <motion.div
+            ref={aboutUsRef}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={aboutUsInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="flex flex-col px-4 gap-4 items-center xl:absolute xl:gap-[80px]"
+          >
             <div className="flex flex-col gap-4 md:flex-row xl:gap-[150px]">
               <DescriptionCard {...ABOUT_US.cards[0]} />
               <DescriptionCard {...ABOUT_US.cards[1]} />
@@ -100,8 +117,14 @@ const Home = () => {
               <DescriptionCard {...ABOUT_US.cards[3]} />
             </div>
             <DescriptionCard {...ABOUT_US.cards[4]} />
-          </div>
-          <img src={aboutUsImage} className="hidden xl:block" />
+          </motion.div>
+          <motion.img
+            ref={aboutUsImgRef}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={aboutUsImgInView ? { opacity: 1, scale: 1 } : {}}
+            src={aboutUsImage}
+            className="hidden xl:block z-40"
+          />
           {/* // hear glow at center  */}
           <img
             src={hearGlow}

@@ -4,7 +4,7 @@ import ROUTES from "./routes";
 import AppLayout from "@/components/layouts/AppLayout";
 import AppLoading from "@/components/loaders/AppLoading";
 
-const RoutesContainer = () => {
+const RoutesContainer = (): JSX.Element => {
   return (
     <Router>
       <Routes>

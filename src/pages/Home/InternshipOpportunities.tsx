@@ -2,6 +2,7 @@ import { INTERNSHIP_OPPORTUNITIES } from "@/assets/data/internshipOpportunites";
 import SectionHeader from "./SectionHeader";
 import { useState } from "react";
 import { cn } from "@/utils/cn";
+import { AnimatePresence, motion } from "framer-motion";
 
 const InternshipOpportunities = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -30,14 +31,18 @@ const InternshipOpportunities = () => {
               >
                 {qna.question}
               </h3>
-              <p
-                className="text-sm sm:text-base text-[#ABAEB2] text-start overflow-hidden"
-                style={{
-                  height: activeIndex === i ? "auto" : "0px",
-                }}
-              >
-                {qna.answer}
-              </p>
+              <AnimatePresence>
+                <motion.p
+                  initial={{ height: 0 }}
+                  animate={{
+                    height: activeIndex === i ? "auto" : 0,
+                  }}
+                  exit={{ height: 0 }}
+                  className="text-sm sm:text-base text-[#ABAEB2] text-start overflow-hidden"
+                >
+                  {qna.answer}
+                </motion.p>
+              </AnimatePresence>
               <span
                 className={cn(
                   "w-full h-[1.5px]",
