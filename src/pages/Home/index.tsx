@@ -5,7 +5,7 @@ import DescriptionCard from "./DescriptionCard";
 import RaysLine1 from "@/assets/icons/rays-line-1.svg";
 import RaysLine2 from "@/assets/icons/rays-line-2.svg";
 import RaysLine3 from "@/assets/icons/rays-line-3.svg";
-// import RaysLine4 from "@/assets/icons/rays-line-4.svg";
+import RaysLine4 from "@/assets/icons/rays-line-4.svg";
 import heroImageOverlay from "@/assets/images/hero image overlay.svg";
 import hearGlow from "@/assets/images/heart-glow.svg";
 import ABOUT_US from "@/assets/data/aboutUs";
@@ -47,11 +47,11 @@ const Home = () => {
         className="absolute top-[820px] sm:top-[900px] lg:top[950px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] w-fit xl:top-[750px] right-0"
         alt=""
       />
-      {/* <img
+      <img
         src={RaysLine4}
         className="absolute w-[200px] sm:w-[500px] top-[2300px] sm:top-[2200px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] left-0"
         alt=""
-      /> */}
+      />
 
       {/* // Hero Section */}
       <section className="flex flex-col pt-[120px] justify-center items-center wrapper my-auto gap-12 xl:flex-row xl:gap-28">

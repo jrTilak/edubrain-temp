@@ -145,9 +145,12 @@ const CourseSection = () => {
                   }}
                   animate={{
                     transform: "translate(0, -50%)",
+                    transition: { delay: 0.05 * i },
                   }}
                   exit={{
                     transform: "translate(50%, -50%)",
+                    opacity: 0,
+                    transition: { duration: 0.1 },
                   }}
                   src={course.image}
                   alt={course.title}
