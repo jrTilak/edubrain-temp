@@ -18,6 +18,7 @@ import FAQSection from "./FAQSection";
 import Timeline from "./Timeline";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import PROCESS from "@/assets/data/process";
 const Home = () => {
   const aboutUsRef = useRef(null);
   const aboutUsInView = useInView(aboutUsRef, {
@@ -147,7 +148,11 @@ const Home = () => {
       {/* Process  todo */}
       <section className="flex flex-col items-center justify-center wrapper overflow-hidden sm:overflow-visible">
         <SectionHeader header="Process" title="Your path to success" />
-        <Timeline />
+        <div className=" text-white flex flex-col mt-20 ml-6 gap-12 max-w-5xl lg:ml-auto lg:mx-auto lg:mt-32">
+          {PROCESS.map((timeline, i) => (
+            <Timeline key={i} {...timeline} i={i} />
+          ))}
+        </div>
       </section>
 
       {/* Certification  */}
