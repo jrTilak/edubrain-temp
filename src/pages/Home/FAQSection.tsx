@@ -23,7 +23,9 @@ const FAQSection = () => {
                 initial={{ height: 0 }}
                 animate={{
                   height: activeFaq === i ? "auto" : 0,
+                  opacity: activeFaq === i ? 1 : 0,
                 }}
+                transition={{ duration: 0.1, ease:"anticipate"}}
                 exit={{ height: 0 }}
                 className="text-[#AEABB2] pr-1 sm:pr-3 overflow-hidden"
               >
