@@ -51,7 +51,7 @@ const Navbar = () => {
       {/* for mobile devices */}
       <aside
         ref={asideBarRef}
-        className="fixed top-0 left-0 right-0 bottom-0 z-50 w-screen h-screen bg-background px-6 sm:px-12 py-9 xl:hidden -translate-x-full transition-all"
+        className="fixed top-0 left-0 right-0 bottom-0 z-50 w-screen h-dvh bg-background px-6 sm:px-12 py-9 xl:hidden translate-x-full transition-all"
       >
         <nav className="flex justify-between flex-col h-full">
           {/* logo */}
