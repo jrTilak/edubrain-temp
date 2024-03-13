@@ -73,7 +73,7 @@ const Home = () => {
             pariatu
           </p>
           <Link
-            to="/courses"
+            to="course"
             className="text-center bg-blue font-Roboto rounded-lg px-6 py-3 text-white w-full sm:max-w-[323px] xl:w-[250px] xl:max-w-none"
           >
             Explore Courses

@@ -25,10 +25,10 @@ const Navbar = () => {
           {/* cta buttons */}
           <div className="gap-4 hidden xl:flex">
             <Link
-              to="#"
+              to="/dashboard/myCourse"
               className="text-center bg-dark font-Roboto rounded-lg px-6 py-3 text-white"
             >
-              Login
+              Rahul
             </Link>
             <Link
               to="#"

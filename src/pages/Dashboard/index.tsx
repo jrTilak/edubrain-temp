@@ -1,4 +1,4 @@
-
+//@ts-nocheck
 import DashboardLayout from "./DashboardLayout/DashboardLayout";
 
 const index = () => {
@@ -10,4 +10,3 @@ const index = () => {
 };
 
 export default index;
-
