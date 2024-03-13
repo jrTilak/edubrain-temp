@@ -19,5 +19,12 @@ const ROUTES: IRoute[] = [
     ),
     component: lazy(() => import("@/pages/Dashboard/DashboardPages/MyCourse")),
   },
+  {
+    path: "/dashboard/myAssignment",
+    wrapper: lazy(
+      () => import("@/pages/Dashboard/DashboardLayout/DashboardLayout")
+    ),
+    component: lazy(() => import("@/pages/Dashboard/DashboardPages/MyCourse")),
+  },
 ];
 export default ROUTES;
