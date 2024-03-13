@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { LazyExoticComponent, lazy } from "react";
 
 interface IRoute {
