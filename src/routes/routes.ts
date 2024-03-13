@@ -10,5 +10,9 @@ const ROUTES: IRoute[] = [
     path: "/",
     component: lazy(() => import("@/pages/Home")),
   },
+  {
+    path: "/dashboard",
+    component: lazy(() => import("@/pages/Dashboard")),
+  },
 ];
 export default ROUTES;
