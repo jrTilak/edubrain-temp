@@ -3,6 +3,7 @@ import { LazyExoticComponent, lazy } from "react";
 interface IRoute {
   path: string;
   component: LazyExoticComponent<() => JSX.Element>;
+  wrapper?: LazyExoticComponent<({ children }) => JSX.Element>;
 }
 
 const ROUTES: IRoute[] = [
@@ -11,8 +12,11 @@ const ROUTES: IRoute[] = [
     component: lazy(() => import("@/pages/Home")),
   },
   {
-    path: "/dashboard",
-    component: lazy(() => import("@/pages/Dashboard")),
+    path: "/dashboard/myCourse",
+    wrapper: lazy(
+      () => import("@/pages/Dashboard/DashboardLayout/DashboardLayout")
+    ),
+    component: lazy(() => import("@/pages/Dashboard/DashboardPages/MyCourse")),
   },
 ];
 export default ROUTES;

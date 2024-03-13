@@ -9,14 +9,14 @@ import { TbLogout2 } from "react-icons/tb";
 import Togglebtn from "./Togglebtn";
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
 
-const DashboardLayout = () => {
+const DashboardLayout = ({ children }) => {
   return (
     <div className="flex">
       {/* Dashboard left side bar */}
       <div className="bg-[#0C0C0D] w-[290px] p-5 h-screen sticky top-0">
         {/* Logo */}
         <div className="flex justify-center">
-        <img className="w-16 mb-16" src={logo} alt="" />
+          <img className="w-16 mb-16" src={logo} alt="" />
         </div>
 
         {/* Navlinks */}
@@ -31,7 +31,7 @@ const DashboardLayout = () => {
                 : " text-[#AEABB2] h-[45px] rounded-xl bg-[#242224] p-3 flex items-center gap-3 text-[16px] font-roboto font-normal"
             }
           >
-            <MdOutlineSpaceDashboard/> My Course
+            <MdOutlineSpaceDashboard /> My Course
           </NavLink>
 
           <NavLink
@@ -44,7 +44,7 @@ const DashboardLayout = () => {
                 : " text-[#AEABB2] h-[45px] rounded-xl bg-[#242224] p-3 flex items-center gap-3 text-[16px] font-roboto font-normal"
             }
           >
-            <PiNoteBlankLight/> My Assignment
+            <PiNoteBlankLight /> My Assignment
           </NavLink>
 
           <NavLink
@@ -57,7 +57,7 @@ const DashboardLayout = () => {
                 : " text-[#AEABB2] h-[45px] p-3 flex items-center gap-3 text-[16px] font-roboto font-normal"
             }
           >
-            <IoLogoGameControllerB/> Games
+            <IoLogoGameControllerB /> Games
           </NavLink>
 
           <NavLink
@@ -70,7 +70,7 @@ const DashboardLayout = () => {
                 : " text-[#AEABB2] h-[45px] p-3 flex items-center gap-3 text-[16px] font-roboto font-normal"
             }
           >
-            <IoCheckmarkDoneCircle/> Refer & Earn
+            <IoCheckmarkDoneCircle /> Refer & Earn
           </NavLink>
 
           <NavLink
@@ -83,23 +83,19 @@ const DashboardLayout = () => {
                 : " text-[#AEABB2] h-[45px] p-3 flex items-center gap-3 text-[16px] font-roboto font-normal"
             }
           >
-            <GrCertificate/> Certificate
+            <GrCertificate /> Certificate
           </NavLink>
-
-         
         </div>
-
 
         <div className="flex flex-col gap-6 mt-5">
           {/* Light & Dark mode button */}
-        <Togglebtn></Togglebtn>
+          <Togglebtn></Togglebtn>
 
-        <button
+          <button
             to={"/"}
             className="text-[#AEABB2] h-[45px] p-3 flex items-center gap-3 text-[16px] font-roboto font-normal transform transition-transform duration-300 hover:-translate-y-0.5"
-            
           >
-            <TbLogout2/> Logout
+            <TbLogout2 /> Logout
           </button>
         </div>
       </div>
@@ -107,7 +103,7 @@ const DashboardLayout = () => {
       {/* All navlinks */}
       <div className="bg-[#141414] w-full px-10 py-5">
         <DashboardHeader></DashboardHeader>
-      <Outlet></Outlet>
+        {children}
       </div>
     </div>
   );
