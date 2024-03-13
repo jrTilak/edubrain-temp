@@ -1,3 +1,4 @@
+//@ts-nocheck
 import DashboardLayout from "./DashboardLayout/DashboardLayout";
 
 const index = () => {

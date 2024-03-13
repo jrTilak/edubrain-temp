@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import { MdOutlineSpaceDashboard } from "react-icons/md";

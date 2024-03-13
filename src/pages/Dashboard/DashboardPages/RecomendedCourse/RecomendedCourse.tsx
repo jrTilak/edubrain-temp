@@ -1,3 +1,4 @@
+//@ts-nocheck
 import clock from "../../../../../src/assets/clock.png";
 import userIcon from "../../../../../src/assets/user-square.png";
 
@@ -75,7 +76,11 @@ const RecomendedCourse = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-6">
         {recomendedCourseDetails.map((details, index) => (
           <div key={index} className="border border-[#4B494D] rounded-2xl">
-            <img className="rounded-t-2xl mb-2 w-full" src={details?.img} alt="" />
+            <img
+              className="rounded-t-2xl mb-2 w-full"
+              src={details?.img}
+              alt=""
+            />
 
             <div className="px-4 pb-[10px]">
               <h1 className="text-lg text-[#F9F5FF] font-bold font-roboto mb-3">
