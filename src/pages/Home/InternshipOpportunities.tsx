@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 const InternshipOpportunities = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <section className="flex flex-col items-start justify-start wrapper overflow-hidden sm:overflow-visible gap-12 sm:gap-16 xl:gap-20">
+    <section className="flex flex-col items-start justify-start wrapper overflow-hidden sm:overflow-visible gap-12">
       <SectionHeader {...INTERNSHIP_OPPORTUNITIES} align="left" />
       <div className="flex gap-12 mt-6 flex-col md:flex-row max-w-7xl">
         <img
