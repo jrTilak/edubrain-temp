@@ -1,23 +1,23 @@
 const NAV_LINKS = [
   {
     label: "About Us",
-    url: "/about",
+    url: "#about",
   },
   {
     label: "Courses",
-    url: "/courses",
+    url: "#courses",
   },
   {
     label: "Process",
-    url: "/process",
+    url: "#process",
   },
   {
     label: "Certification",
-    url: "/certification",
+    url: "#certification",
   },
   {
     label: "FAQ",
-    url: "/faq",
+    url: "#faq",
   },
 ];
 
