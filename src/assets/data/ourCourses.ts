@@ -9,7 +9,7 @@ const OUR_COURSES = [
     title: "UI/UX Design",
     category: "Visual Art based",
     desc: "Embark on a creative journey with our UI/UX design course, where you'll craft exceptional user experiences. Through hands-on learning, translate theory into real-world impact, building a portfolio that catapults your career in design. Join us and shape the future of user-centric innovation.",
-    discountedPrice: 45000,
+    discountedPrice: 4500,
     basePrice: 5000,
     discount: 10, // in percentage
     lecturesCount: 67,
@@ -20,7 +20,7 @@ const OUR_COURSES = [
     title: "Data Science",
     category: "Data Analysis & Insights",
     desc: "Dive into the world of data exploration, analysis, and interpretation with our Data Science course. Master the tools and techniques required to extract valuable insights from complex datasets, empowering you to make informed decisions and drive business growth.",
-    discountedPrice: 45000,
+    discountedPrice: 4500,
     basePrice: 5000,
     discount: 10, // in percentage
     lecturesCount: 67,
@@ -31,7 +31,7 @@ const OUR_COURSES = [
     title: "Python",
     category: "Programming & Development",
     desc: "Unlock the power of programming with Python, the versatile language used by tech giants and startups alike. Whether you're a beginner or an experienced coder, our Python course will equip you with the skills to develop applications, automate tasks, and solve real-world",
-    discountedPrice: 45000,
+    discountedPrice: 4500,
     basePrice: 5000,
     discount: 10, // in percentage
     lecturesCount: 67,
@@ -42,7 +42,7 @@ const OUR_COURSES = [
     title: "Power Bi",
     category: "Business Intelligence & Analytics",
     desc: "Transform raw data into compelling visual narratives with our Power BI course. Learn to harness the capabilities of this leading business analytics tool to create interactive reports and dashboards that drive actionable insights, enabling stakeholders to make informed decisions",
-    discountedPrice: 45000,
+    discountedPrice: 4500,
     basePrice: 5000,
     discount: 10, // in percentage
     lecturesCount: 67,
@@ -53,7 +53,7 @@ const OUR_COURSES = [
     title: "MERN Stack",
     category: "Web Development & Full-Stack",
     desc: "Build dynamic and responsive web applications from scratch with our MERN Stack course. Explore the seamless integration of MongoDB, Express.js, React, and Node.js, and discover how to leverage this modern stack to develop robust, scalable, and feature-rich applications tailored to meet user demands.",
-    discountedPrice: 45000,
+    discountedPrice: 4500,
     basePrice: 5000,
     discount: 10, // in percentage
     lecturesCount: 67,

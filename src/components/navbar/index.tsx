@@ -18,7 +18,7 @@ const Navbar = () => {
           <ul className="gap-8 text-[#F5F8FF] hidden xl:flex">
             {NAV_LINKS.map((link, index) => (
               <li key={index} className="text-[18px]">
-                <Link to={link.url}>{link.label}</Link>
+                <a href={link.url}>{link.label}</a>
               </li>
             ))}
           </ul>

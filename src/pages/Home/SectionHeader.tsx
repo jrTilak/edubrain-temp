@@ -17,16 +17,20 @@ const SectionHeader = (props: SectionHeaderProps) => {
           : "items-center justify-center text-center"
       )}
     >
-      <div>
-        <span className="text-blue text-base sm:text-xl md:text-2xl">
+      <div className="">
+        <span className="text-blue text-base sm:text-xl md:text-2xl xl:text-2xl">
           {props.header}
         </span>
         <h2
-          className="text-xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-[#F5F8FF] font-Montserrat"
+          className="text-2xl sm:text-[32px] md:text-4xl xl:text-5xl xl:leading-[57.6px] font-[700] text-[#F5F8FF] font-Montserrat mt-2 xl:mt-4"
           dangerouslySetInnerHTML={{ __html: props.title }}
         />
       </div>
-      {props.desc && <p className="p max-w-[628px]">{props.desc}</p>}
+      {props.desc && (
+        <p className="text-[#7A7C80] text-xs sm:text-sm xl:text-base max-w-[628px]">
+          {props.desc}
+        </p>
+      )}
     </div>
   );
 };

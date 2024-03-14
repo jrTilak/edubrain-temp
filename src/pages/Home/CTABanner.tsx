@@ -2,21 +2,21 @@ import ctaImg from "@/assets/images/cta-girl.png";
 
 const CTABanner = () => {
   return (
-    <div className="bg-[#246BFD] rounded-xl h-[211px] xs:h-[192px] sm:h-[220px] md:h-[300px] wrapper max-w-6xl xs:justify-between relative p-3 sm:px-6 md:p-8 flex flex-col gap-3">
-      <h3 className="text-[#F5F8FF] font-bold text-xl xs:text-2xl md:text-3xl lg:text-4xl font-Montserrat">
+    <div className="bg-[#246BFD] rounded-xl w-full h-[211px] sm:h-[228px] max-w-[683px] xl:max-w-6xl xl:h-[380px] m-auto relative px-4 sm:px-6 py-5 flex flex-col gap-2 xl:gap-5 xs:mt-10 sm:mt-16 xl:p-16">
+      <h3 className="text-[#F5F8FF] font-bold text-xl leading-[24px] sm:text-[28px] sm:leading-[33.6px] font-Montserrat xl:text-[48px] xl:leading-[57.6px] max-w-[624px]">
         Take the Next Step in
         <br />
         Your Tech Journey.
       </h3>
-      <p className="max-w-[60%] text-[12px] xs:text-sm sm:text-base md:text-xl lg:text-2xl text-[#F5F8FF]">
+      <p className="max-w-[60%] text-xs sm:text-sm xl:text-2xl xl:leading-[31.2px] text-[#F5F8FF] xl:max-w-[624px]">
         Revolutionize Your Learning Journey with AI-Enhanced Courses!
       </p>
-      <button className="text-[#F5F8FF] bg-[#0C0C0D] text-sm px-5 py-2 sm:py-3 lg:py-4 md:text-lg rounded-lg max-w-fit xs:max-w-none w-[180px] sm:w-[200px] md:w-[300px]">
+      <button className="text-[#F5F8FF] bg-[#0C0C0D] text-sm px-5 py-2 sm:py-3 lg:py-4  rounded-lg w-[180px] sm:w-[200px] md:w-[300px] mt-4 md:mt-5">
         Explore Now!
       </button>
       <img
         src={ctaImg}
-        className="absolute right-0 bottom-0 h-40 xs:h-[130%]"
+        className="absolute right-0 bottom-0 h-[154px] w-[134px] xs:w-auto xs:h-[110%] sm:h-[120%]"
       />
     </div>
   );
