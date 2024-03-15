@@ -17,14 +17,14 @@ const SliderCard = () => {
     <div className='py-16 overflow-hidden'>
       <div className='flex flex-col gap-4'>
         <div className='flex justify-center'>
-          <span className='text-[48px] font-900 pt-0 text-white'>Course Mastery Achievements</span>
+          <span className='text-[48px] font-900 pt-0 text-white text-center max-sm:text-[36px] '>Course Mastery Achievements</span>
         </div>
         <div className='flex justify-center'>
-          <p className='text-[16px]  pt-0 text-white'>Uncover quick insights about Edubraining. Get ready for your tech journey by exploring our FAQs. Dive in now!</p>
+          <p className='text-[16px] px-16 max-sm:px-2 pt-0 text-[#7A7C80] text-center'>Uncover quick insights about Edubraining. Get ready for your tech journey by exploring our FAQs. Dive in now!</p>
         </div>
       </div>
 
-      <div className='flex justify-center py-[100px] m-2 gap-10'>
+      <div className='flex justify-center py-[80px] w-[1440px] m-2 gap-10'>
         <AnimatePresence initial={false}>
           {slides.map((slide) => (
             <motion.div
@@ -33,18 +33,17 @@ const SliderCard = () => {
               animate={{ x: '0%' }}
               exit={{ x: '-100%' }}
               transition={{ duration: 10, ease: 'linear' }}
-              className='bg-[#121721] w-[300px] pt-[60px] overflow-visible rounded-xl border border-[#2D2E30] relative'>
-              <img src={silder} alt='' className='flex justify-center absolute inset-x-0 top-[-50px] left-[20px] -mt-4' />
-              <div className='flex flex-col pt-[100px] p-10'>
+              className='bg-[#121721]  h-[300px] pt-[60px] overflow-visible rounded-xl border border-[#2D2E30] '>
+              <img src={silder} alt='' className='flex w-[340px] justify-center absolute inset-x-0 top-[-50px] left-[20px] -mt-4' />
+              <div className='flex flex-col pt-[120px]'>
                 <span className='flex justify-center text-white text-[24px] font-700'>Seamless Journeys</span>
-                <p className='text-white flex justify-center text-center'>Tackle real-world challenges, honing your problem-solving expertise.</p>
+                <p className='text-[#7A7C80] flex justify-center text-center'>Tackle real-world challenges, honing your problem-solving expertise.</p>
               </div>
             </motion.div>
           ))}
         </AnimatePresence>
       </div>
-
-      <div className='flex gap-3 py-16 justify-center'>
+      <div className='flex gap-3  justify-center'>
         <button className='px-4 bg-[#1A1A1F] m-2 text-white text-[16px] rounded-lg py-3'>Read More</button>
         <button className='px-8 bg-[#246BFD] text-white m-2 rounded-lg py-3 text-[16px]'>Enroll Now</button>
       </div>
