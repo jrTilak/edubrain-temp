@@ -1,6 +1,5 @@
 import aboutUsImage from "@/assets/images/image 45.png";
 import DescriptionCard from "./DescriptionCard";
-
 import hearGlow from "@/assets/images/heart-glow.svg";
 import ABOUT_US from "@/assets/data/aboutUs";
 import CourseSection from "./CourseSection";
@@ -15,9 +14,10 @@ import { useRef } from "react";
 import PROCESS from "@/assets/data/process";
 import HeroSection from "./HeroSection";
 import { useInnerSize } from "@/hooks/useInnerSize";
+import RaysAndHighlights from "./RaysAndHighlights";
 const Home = () => {
   const aboutUsRef = useRef(null);
-  const {width} = useInnerSize()
+  const { width } = useInnerSize();
   const aboutUsInView = useInView(aboutUsRef, {
     once: true,
   });
@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div className="flex flex-col gap-[120px] xl:gap-48 overflow-hidden px-4 sm:px-10">
       {/* rays  */}
-      {/* <RaysAndHighlights /> */}
+      <RaysAndHighlights />
 
       {/* // Hero Section */}
       <HeroSection />
@@ -45,14 +45,14 @@ const Home = () => {
         />
         <div className="flex items-center justify-center w-full xl:relative  xl:h-[800px]">
           <motion.div
-            {
-              ...(width > 1024 ? {
-                ref: aboutUsRef,
-                initial: { opacity: 0, scale: 0 },
-                animate: aboutUsInView ? { opacity: 1, scale: 1 } : {},
-                transition: { duration: 0.5, delay: 0.5 }
-              } : {})
-            }
+            {...(width > 1024
+              ? {
+                  ref: aboutUsRef,
+                  initial: { opacity: 0, scale: 0 },
+                  animate: aboutUsInView ? { opacity: 1, scale: 1 } : {},
+                  transition: { duration: 0.5, delay: 0.5 },
+                }
+              : {})}
             className="flex flex-col px-4 gap-4 items-center xl:absolute xl:gap-[100px]"
           >
             <div className="flex flex-col gap-4 md:flex-row xl:gap-[242px]">
