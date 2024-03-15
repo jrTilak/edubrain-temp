@@ -10,7 +10,7 @@ import Faq from './Faq'
 
 const UI = () => {
   return (
-    <div>
+    <div className=" overflow-hidden">
       <Hero/>
       <Card/>
       <Allsection/>

@@ -1,6 +1,6 @@
 import FAQ from "@/assets/data/faq";
 import SectionHeader from "./SectionHeader";
-import plus from "@/assets/icons/add-square.svg";
+import plus from "@/assets/images/add-square.svg";
 import minus from "@/assets/icons/minus-square.svg";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
