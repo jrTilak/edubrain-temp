@@ -13,7 +13,7 @@ const AppLayout = ({ children }: IAppLayoutProps) => {
       <main
         className={cn(
           !pathname.startsWith("/dashboard")
-            ? "mt-[85px] xl:mt-[80px] bg-background  max-w-[1450px] mx-auto"
+            ? "mt-[64px] xl:mt-[80px] bg-background max-w-[1450px] mx-auto"
             : ""
         )}
       >
