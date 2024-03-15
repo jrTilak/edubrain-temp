@@ -1,4 +1,3 @@
-import React from 'react';
 import Marquee from 'react-fast-marquee';
 import sliderImage from '@/assets/images/slider.svg';
 import slider01Image from '@/assets/images/Group 1456.svg';
