@@ -1,8 +1,18 @@
 import ctaImg from "@/assets/images/cta-girl.png";
-
+import raysLeft from "@/assets/images/cta-rays-left.svg";
+import raysRight from "@/assets/images/cta-rays-right.svg";
 const CTABanner = () => {
   return (
     <div className="bg-[#246BFD] rounded-xl w-full h-[211px] sm:h-[228px] max-w-[683px] xl:max-w-6xl xl:h-[380px] m-auto relative px-4 sm:px-6 py-5 flex flex-col gap-2 xl:gap-5 xs:mt-10 sm:mt-16 xl:p-16">
+      {/* //rays */}
+      <img
+        src={raysLeft}
+        className="absolute top-0 left-0 xl:w-[400px] md:w-[300px] sm:w-[200px] w-[138px]"
+      />
+      <img
+        src={raysRight}
+        className="absolute bottom-0 right-0 xl:w-[400px] md:w-[300px] sm:w-[200px] w-[138px]"
+      />
       <h3 className="text-[#F5F8FF] font-bold text-xl leading-[24px] sm:text-[28px] sm:leading-[33.6px] font-Montserrat xl:text-[48px] xl:leading-[57.6px] max-w-[624px]">
         Take the Next Step in
         <br />
@@ -16,7 +26,7 @@ const CTABanner = () => {
       </button>
       <img
         src={ctaImg}
-        className="absolute right-0 bottom-0 h-[154px] w-[134px] xs:w-auto xs:h-[110%] sm:h-[120%]"
+        className="absolute right-0 bottom-0 h-[154px] w-[134px] xs:w-auto xs:h-[110%] sm:h-[120%] sm:right-[30px] xl:right-[45px]"
       />
     </div>
   );
