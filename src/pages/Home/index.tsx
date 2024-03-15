@@ -14,8 +14,10 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import PROCESS from "@/assets/data/process";
 import HeroSection from "./HeroSection";
+import { useInnerSize } from "@/hooks/useInnerSize";
 const Home = () => {
   const aboutUsRef = useRef(null);
+  const {width} = useInnerSize()
   const aboutUsInView = useInView(aboutUsRef, {
     once: true,
   });
@@ -43,10 +45,14 @@ const Home = () => {
         />
         <div className="flex items-center justify-center w-full xl:relative  xl:h-[800px]">
           <motion.div
-            ref={aboutUsRef}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={aboutUsInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            {
+              ...(width > 1024 ? {
+                ref: aboutUsRef,
+                initial: { opacity: 0, scale: 0 },
+                animate: aboutUsInView ? { opacity: 1, scale: 1 } : {},
+                transition: { duration: 0.5, delay: 0.5 }
+              } : {})
+            }
             className="flex flex-col px-4 gap-4 items-center xl:absolute xl:gap-[100px]"
           >
             <div className="flex flex-col gap-4 md:flex-row xl:gap-[242px]">
@@ -91,10 +97,10 @@ const Home = () => {
       {/* Process  todo */}
       <section
         id="process"
-        className="flex flex-col items-center justify-center wrapper overflow-hidden sm:overflow-visible gap-12 sm:gap-16 xl:gap-28"
+        className="flex flex-col items-center justify-center gap-12 overflow-hidden wrapper sm:overflow-visible sm:gap-16 xl:gap-28"
       >
         <SectionHeader header="Process" title="Your path to success" />
-        <div className=" text-white flex flex-col ml-6 gap-12 max-w-5xl lg:ml-auto lg:mx-auto">
+        <div className="flex flex-col max-w-5xl gap-12 ml-6 text-white lg:ml-auto lg:mx-auto">
           {PROCESS.map((timeline, i) => (
             <Timeline key={i} {...timeline} i={i} />
           ))}
@@ -104,10 +110,10 @@ const Home = () => {
       {/* Certification  */}
       <section
         id="certification"
-        className="flex flex-col items-center justify-center gap-12 sm:gap-16 xl:gap-28 overflow-hidden"
+        className="flex flex-col items-center justify-center gap-12 overflow-hidden sm:gap-16 xl:gap-28"
       >
         <SectionHeader {...CERTIFICATION_AND_ACHIEVEMENT} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 xl:gap-8">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 xl:gap-8">
           {CERTIFICATION_AND_ACHIEVEMENT.cards.map((card, i) => (
             <DescriptionCard key={i} {...card} />
           ))}

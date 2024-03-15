@@ -1,15 +1,16 @@
 import PROCESS from "@/assets/data/process";
 import crown from "@/assets/images/Crown.png";
 import emoji from "@/assets/images/🥳.png";
+import { useInnerSize } from "@/hooks/useInnerSize";
 import { cn } from "@/utils/cn";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const Timeline = ({ card, img, isHighlighted, i }: any) => {
+  const {width} = useInnerSize()
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, {
-    once: true,
-    amount: 0.8,
+    amount: width > 1024 ? 0.5 : 0.2,
   });
   return (
     <div
@@ -25,7 +26,7 @@ const Timeline = ({ card, img, isHighlighted, i }: any) => {
           transition={{ duration: 0.4 }}
           src={img}
           alt=""
-          className="h-full w-full object-contain object-center"
+          className="object-contain object-center w-full h-full"
         />
       </div>
       {/* Icon */}
@@ -37,7 +38,7 @@ const Timeline = ({ card, img, isHighlighted, i }: any) => {
             : ""
         )}
       >
-        <div className="relative z-10 size-7 flex justify-center items-center ">
+        <div className="relative z-10 flex items-center justify-center size-7 ">
           {/* insert 0 before 1 digit number */}
           <motion.div
             initial={{ scale: 0 }}
@@ -66,7 +67,7 @@ const Timeline = ({ card, img, isHighlighted, i }: any) => {
             transition={{ duration: 0.4 }}
             src={img}
             alt=""
-            className="h-full w-full object-contain object-center"
+            className="object-contain object-center w-full h-full"
           />
         </div>
         {/* card */}

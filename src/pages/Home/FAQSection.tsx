@@ -9,16 +9,17 @@ const FAQSection = () => {
   return (
     <section
       id="faq"
-      className="flex flex-col items-center justify-center wrapper overflow-hidden sm:overflow-visible  gap-12"
+      className="flex flex-col items-center justify-center gap-12 overflow-hidden wrapper sm:overflow-visible"
     >
       <SectionHeader {...FAQ} />
-      <div className="flex flex-col gap-3 sm:gap-6 mt-6 w-full max-w-3xl">
+      <div className="flex flex-col w-full max-w-3xl gap-3 mt-6 sm:gap-6">
         {FAQ.faqs.map((faq, i) => (
           <button
+          key={i}
             onClick={() => setActiveFaq(activeFaq === i ? null : i)}
             className="flex flex-col gap-4 p-4 sm:px-6 rounded-xl border-2 border-[#313233] w-full overflow-y-hidden"
           >
-            <div className="flex justify-between items-center w-full">
+            <div className="flex items-center justify-between w-full">
               <h3 className="text-[#F5F8FF] text-lg">{faq.question}</h3>
               <img src={activeFaq === i ? minus : plus} className="h-7 w-7" />
             </div>
