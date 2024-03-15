@@ -9,23 +9,23 @@ const Curriculum = () => {
     const [activeIndex1, setActiveIndex1] = useState(null);
 
     // Function to handle clicking on a list item
-    const handleClick = (index) => {
+    const handleClick = (index:any) => {
         setActiveIndex(index === activeIndex ? null : index);
     };
 
     // Function to determine if a list item is active
-    const isActive = (index) => {
+    const isActive = (index:any) => {
         return index === activeIndex ? "text-[36px] text-[#246BFD]" : "text-[24px]";
     };
 
 
     // Function to handle clicking on a part
-    const handlePartClick = (index) => {
+    const handlePartClick = (index:any) => {
         setActiveIndex1(index === activeIndex1 ? null : index);
     };
 
     // Function to determine if a part is active
-    const isActivePart1 = (index) => {
+    const isActivePart1 = (index:any) => {
         return index === activeIndex1 ? "border-[#246BFD] text-[16px] text-[#246BFD]" : "border-[#252526] text-[16px]";
     };
 
