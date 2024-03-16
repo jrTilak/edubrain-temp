@@ -8,6 +8,7 @@ import OUR_COURSES from "@/assets/data/ourCourses";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import SwipeCarousel from "./SwipeCarousel";
+import StackedCarousel from "./StackedCarousel";
 
 const CourseSection = () => {
   const [activeCourse, setActiveCourse] = useState(0);
@@ -145,14 +146,22 @@ const CourseSection = () => {
         </div>
         {/* images */}
         <div className="relative w-full">
-          {/* stacked images container */}
-          <div className="h-[200px] sm:h-[400px] xl:w-[600px] w-full relative">
+          {/* stacked images container for sm devices */}
+          <div className="h-[200px] sm:hidden xl:w-[600px] w-full">
             <SwipeCarousel
               images={OUR_COURSES.map((course) => course.image)}
               activeCourseIndex={activeCourse}
               setActiveCourseIndex={setActiveCourse}
               autoSwipe={false}
-              isStacked={true}
+            />
+          </div>
+          {/* stacked images container for md+ devices */}
+          <div className="hidden sm:block h-[200px] sm:h-[400px] xl:w-[600px] w-full">
+            <StackedCarousel
+              images={OUR_COURSES.map((course) => course.image)}
+              activeCourseIndex={activeCourse}
+              setActiveCourseIndex={setActiveCourse}
+              autoSwipe={false}
             />
           </div>
           <button className="absolute z-50 shadow-lg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
