@@ -6,8 +6,9 @@ import play from "@/assets/icons/play.svg";
 import { useState } from "react";
 import OUR_COURSES from "@/assets/data/ourCourses";
 import { Link } from "react-router-dom";
-import { reOrderArray } from "@/utils/reorder";
 import { AnimatePresence, motion } from "framer-motion";
+import SwipeCarousel from "./SwipeCarousel";
+
 const CourseSection = () => {
   const [activeCourse, setActiveCourse] = useState(0);
   const [isReadMoreActive, setIsReadMoreActive] = useState(false);
@@ -72,7 +73,7 @@ const CourseSection = () => {
         </motion.p>
         {/* for larger devices */}
         <motion.p className="text-[#7A7C80] text-lg hidden xl:block">
-          {OUR_COURSES[activeCourse].desc}
+          {OUR_COURSES[activeCourse].desc.substring(0, 280) + "..."}
         </motion.p>
         <motion.div className="flex gap-2 sm:gap-3 items-end">
           <span className="text-white text-2xl sm:text-3xl xl:text-3xl font-semibold">
@@ -146,36 +147,13 @@ const CourseSection = () => {
         <div className="relative w-full">
           {/* stacked images container */}
           <div className="h-[200px] sm:h-[400px] xl:w-[600px] w-full relative">
-            {reOrderArray(OUR_COURSES, activeCourse).map((course, i) => (
-              <AnimatePresence>
-                <motion.img
-                  layout
-                  key={activeCourse + i}
-                  initial={{
-                    transform: "translate(50%, -50%)",
-                    height: "calc(100% - " + (i + 2) * 40 + "px)",
-                  }}
-                  animate={{
-                    transform: "translate(0, -50%)",
-                    height: "calc(100% - " + i * 40 + "px)",
-                  }}
-                  exit={{
-                    transform: "translate(50%, -50%)",
-                    opacity: 0,
-                    transition: { duration: 0.1 },
-                    height: "calc(100% - " + (i + 2) * 40 + "px)",
-                  }}
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full h-full object-cover object-center rounded-xl absolute inset-y-1/2"
-                  style={{
-                    zIndex: OUR_COURSES.length - i + 1, // to show the active course image on top
-                    left: `${i * 50}px`, // to show the stacked images
-                    //scale was not working so used height to show the stacked images
-                  }}
-                />
-              </AnimatePresence>
-            ))}
+            <SwipeCarousel
+              images={OUR_COURSES.map((course) => course.image)}
+              activeCourseIndex={activeCourse}
+              setActiveCourseIndex={setActiveCourse}
+              autoSwipe={false}
+              isStacked={true}
+            />
           </div>
           <button className="absolute z-50 shadow-lg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <img src={play} alt="play button" className="h-5 w-5" />
