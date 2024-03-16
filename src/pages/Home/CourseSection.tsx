@@ -149,8 +149,8 @@ const CourseSection = () => {
           <div className="h-[200px] sm:hidden xl:w-[600px] w-full">
             <ImageCarousel
               images={OUR_COURSES.map((course) => course.image)}
-              activeCourseIndex={activeCourse}
-              setActiveCourseIndex={setActiveCourse}
+              activeIndex={activeCourse}
+              setActiveIndex={setActiveCourse}
               autoSwipe={false}
             />
           </div>
@@ -158,8 +158,8 @@ const CourseSection = () => {
           <div className="hidden sm:block h-[200px] sm:h-[400px] xl:w-[600px] w-full">
             <ImageCarousel
               images={OUR_COURSES.map((course) => course.image)}
-              activeCourseIndex={activeCourse}
-              setActiveCourseIndex={setActiveCourse}
+              activeIndex={activeCourse}
+              setActiveIndex={setActiveCourse}
               autoSwipe={false}
               isStacked={true}
             />

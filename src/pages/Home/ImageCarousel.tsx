@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
-const DRAG_BUFFER = 30;
+const DRAG_BUFFER = 30; // in pixels => how much user has to drag to change the slide
 
+// spring animation options
 const SPRING_OPTIONS = {
   type: "spring",
   mass: 3,
@@ -12,8 +13,8 @@ const SPRING_OPTIONS = {
 
 interface SwipeCarouselProps {
   images: string[];
-  activeCourseIndex: number;
-  setActiveCourseIndex: React.Dispatch<React.SetStateAction<number>>;
+  activeIndex: number;
+  setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
   autoSwipe?: boolean;
   autoSwipeDelay?: number;
   isStacked?: boolean;
@@ -21,8 +22,8 @@ interface SwipeCarouselProps {
 
 const SwipeCarousel = ({
   images,
-  activeCourseIndex,
-  setActiveCourseIndex,
+  activeIndex,
+  setActiveIndex,
   autoSwipe = true,
   autoSwipeDelay = 5000,
   isStacked = false,
@@ -36,7 +37,7 @@ const SwipeCarousel = ({
         const x = dragX.get();
 
         if (x === 0) {
-          setActiveCourseIndex((prev) => {
+          setActiveIndex((prev) => {
             if (prev === images.length - 1) {
               return 0;
             }
@@ -49,13 +50,13 @@ const SwipeCarousel = ({
     }
   }, [autoSwipe]);
 
+  // handle drag end to change the slide
   const onDragEnd = () => {
     const x = dragX.get();
-
-    if (x <= -DRAG_BUFFER && activeCourseIndex < images.length - 1) {
-      setActiveCourseIndex((prev) => prev + 1);
-    } else if (x >= DRAG_BUFFER && activeCourseIndex > 0) {
-      setActiveCourseIndex((prev) => prev - 1);
+    if (x <= -DRAG_BUFFER && activeIndex < images.length - 1) {
+      setActiveIndex((prev) => prev + 1);
+    } else if (x >= DRAG_BUFFER && activeIndex > 0) {
+      setActiveIndex((prev) => prev - 1);
     }
   };
 
@@ -76,7 +77,7 @@ const SwipeCarousel = ({
           isStacked
             ? {}
             : {
-                translateX: `-${activeCourseIndex * 100}%`,
+                translateX: `-${activeIndex * 100}%`,
               }
         }
         transition={SPRING_OPTIONS}
@@ -89,6 +90,7 @@ const SwipeCarousel = ({
           return (
             <>
               {isStacked ? (
+                // stacked images
                 <motion.div
                   key={index}
                   style={{
@@ -98,21 +100,23 @@ const SwipeCarousel = ({
                   }}
                   animate={{
                     scale: (() => {
-                      if (activeCourseIndex === index) return 1;
-                      else if (activeCourseIndex > index) {
-                        return (activeCourseIndex - index) / 10 + 1;
+                      //gradually scale down the images to create stacked effect and active image scale is 1
+                      if (activeIndex === index) return 1;
+                      else if (activeIndex > index) {
+                        return (activeIndex - index) / 10 + 1;
                       } else {
-                        return 1 - (index - activeCourseIndex) / 10;
+                        return 1 - (index - activeIndex) / 10;
                       }
-                    })(),
+                    })(), //iife to calculate scale
                     zIndex: images.length - index - 1,
-                    left: `${(index - activeCourseIndex) * 15}%`,
-                    opacity: activeCourseIndex > index ? 0 : 1,
+                    left: `${(index - activeIndex) * 15}%`, //to create stacked effect
+                    opacity: activeIndex > index ? 0 : 1, //hide images to the left of active course
                   }}
                   transition={SPRING_OPTIONS}
                   className="w-full h-full shrink-0 rounded-xl object-cover object-center absolute"
                 />
               ) : (
+                // linear images
                 <motion.div
                   key={index}
                   style={{
@@ -121,7 +125,7 @@ const SwipeCarousel = ({
                     backgroundPosition: "center",
                   }}
                   animate={{
-                    scale: activeCourseIndex === index ? 1 : 0.85,
+                    scale: activeIndex === index ? 1 : 0.85,
                   }}
                   transition={SPRING_OPTIONS}
                   className="w-full h-full shrink-0 rounded-xl object-cover object-center"
