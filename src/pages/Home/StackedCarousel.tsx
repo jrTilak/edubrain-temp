@@ -91,7 +91,7 @@ const StackedCarousel = ({
                   }
                 })(),
                 zIndex: images.length - index - 1,
-                left: `${(index - activeCourseIndex) * 20}%`,
+                left: `${(index - activeCourseIndex) * 15}%`,
                 opacity: activeCourseIndex > index ? 0 : 1,
               }}
               transition={SPRING_OPTIONS}
