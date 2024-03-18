@@ -164,8 +164,8 @@ const CourseSection = () => {
               isStacked={true}
             />
           </div>
-          <button className="absolute z-50 shadow-lg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <img src={play} alt="play button" className="h-5 w-5" />
+          <button className="absolute z-50 shadow-lg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#246BFD] bg-opacity-80 p-2 flex items-center justify-center">
+            <img src={play} alt="play button" className="h-4 w-4 ml-0.5" />
           </button>
           {/* // courses indicator line  */}
           <div className="flex relative w-full  bg-[#252526] h-1 mt-6 rounded-full">

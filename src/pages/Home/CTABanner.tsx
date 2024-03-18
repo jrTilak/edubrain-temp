@@ -21,7 +21,7 @@ const CTABanner = () => {
       <p className="max-w-[60%] text-xs sm:text-sm xl:text-2xl xl:leading-[31.2px] text-[#F5F8FF] xl:max-w-[624px]">
         Revolutionize Your Learning Journey with AI-Enhanced Courses!
       </p>
-      <button className="text-[#F5F8FF] bg-[#0C0C0D] text-sm px-5 py-2 sm:py-3 lg:py-4  rounded-lg w-[180px] sm:w-[200px] md:w-[300px] mt-4 md:mt-5">
+      <button className="text-[#F5F8FF] bg-[#0C0C0D] text-sm px-5 py-2 sm:py-3 lg:py-4  rounded-lg w-[130px] xs:w-[180px] sm:w-[200px] md:w-[300px] mt-4 md:mt-5">
         Explore Now!
       </button>
       <img
