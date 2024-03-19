@@ -30,7 +30,7 @@ const Certification = () => {
                         <div className='text-#ABAEB2 flex justify-center text-[16px]'>
                             <p>Embark on a certification journey that not only validates your skills but also prepares you for the challenges of the professional landscape. Your certification project at Edubraining is a testament to your practical expertise and commitment to mastering the subject matter.</p>
                         </div>
-                        <div className='text-white flex gap-2 flex-col py-10'>
+                        <div className='text-white flex gap-2 flex-col py-10 max-sm:py-4'>
                             {/* Mapping through certification points */}
                             {certificationPoints.map((point, index) => (
                                 <div key={index} className='flex gap-4'>
