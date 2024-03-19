@@ -16,6 +16,7 @@
 
 * {
   @apply font-Roboto;
+  scroll-behavior: smooth;
 }
 
 *::-webkit-scrollbar {

@@ -33,7 +33,7 @@ const Curriculum = () => {
     };
 
     // Function to determine if a part is active
-    const isActivePart1 = (index) => {
+    const isActivePart1 = (index:any) => {
         return index === activeIndex1 ? "border-[#246BFD] text-[16px] text-[#246BFD]" : "border-[#252526] text-[16px]";
     };
 
