@@ -3,7 +3,9 @@ import { Outlet } from "react-router-dom";
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
 import Sidebar from "./Sidebar";
 
-const DashboardLayout = () => {
+const DashboardLayout = ({
+  children,
+}) => {
   return (
     <div className="flex">
 
@@ -13,7 +15,9 @@ const DashboardLayout = () => {
       {/* All Pages */}
       <div className="bg-[#141414] w-full px-7 md:px-10 py-5 overflow-hidden">
         <DashboardHeader></DashboardHeader>
-      <Outlet></Outlet>
+      {
+        children
+      }
       </div>
 
 
