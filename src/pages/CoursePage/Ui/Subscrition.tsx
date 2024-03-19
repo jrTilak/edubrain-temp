@@ -38,7 +38,7 @@ const Payment = () => {
                         <span className='text-[#FF9300]'>Mentor Support</span>
                     </div>
                     <span className='text-white text-[24px] font-Lato font-400 line-through'>$1999</span>
-                    <span className='text-white text-[48px] font-Lato font-600'>$999</span>
+                    <span className='text-white text-[48px] font-Lato font-600'>$1299</span>
                     <p className='text-white pr-16'>Unlock foundational knowledge with our Basic Plan. Ideal for self-paced learners</p>
                     <hr className='bg-white' />
                     <div className='flex  gap-4'>
