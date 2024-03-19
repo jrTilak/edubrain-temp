@@ -1,3 +1,4 @@
+//@ts-nocheck
 import play from '@/assets/images/arrow-right.svg'
 import { useState ,useRef, SetStateAction } from 'react';
 

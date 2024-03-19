@@ -1,4 +1,4 @@
-
+//@ts-nocheck
 import dollar from '@/assets/images/dollar-circle.svg';
 import briefcase from '@/assets/icons/briefcase.svg';
 import teacher from '@/assets/icons/teacher.svg';

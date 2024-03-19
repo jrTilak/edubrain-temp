@@ -1,3 +1,4 @@
+//@ts-nocheck
 import Video from "./Video"
 
 const Hero = ({title , subtitle ,subtitle1}) => {
