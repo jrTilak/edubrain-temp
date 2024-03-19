@@ -1,14 +1,13 @@
 //@ts-nocheck
-import Workshop from "./Workshop/Workshop";
-import EnrolledCourse from "./EnrolledCourse/EnrolledCourse";
+import EnrolledCourse from './EnrolledCourse/EnrolledCourse';
+
 
 const MyCourse = () => {
-  return (
-    <div>
-      <EnrolledCourse></EnrolledCourse>
-      <Workshop></Workshop>
-    </div>
-  );
+    return (
+        <div>
+            <EnrolledCourse></EnrolledCourse>
+        </div>
+    );
 };
 
 export default MyCourse;

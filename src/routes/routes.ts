@@ -30,5 +30,7 @@ const ROUTES: IRoute[] = [
     path: "/course",
     component: lazy(() =>import("@/pages/CoursePage/Ui/UI"))
   },
+
+
 ];
 export default ROUTES;
