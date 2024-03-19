@@ -1,141 +1,246 @@
 //@ts-nocheck
 import { useState } from "react";
-import EnrolledCourseCard from "./EnrolledCourseCard";
+import CoursePage from "../CoursePage/CoursePage";
 import RecomendedCourse from "../RecomendedCourse/RecomendedCourse";
+import Workshop from "../Workshop/Workshop";
 
 const EnrolledCourse = () => {
-  const [activeTab, setActiveTab] = useState("tab1");
+    // Course Details
+    const courseDetails = [
+        {
+          img: "https://i.ibb.co/dcQynTD/ui-ux-design.png",
+          courseName: "UI/UX design",
+          enrollDate: "Enrolled on 12 may, 2023",
+          time: "Last Read: Introduction of UI/UX",
+          module: "154",
+          completedModule: "12",
+        },
+    
+        {
+          img: "https://i.ibb.co/VBJZcwK/data-science.png",
+          courseName: "Data Science",
+          enrollDate: "Enrolled on 12 may, 2023",
+          time: "Last Read: Learn Data Science",
+          module: "154",
+          completedModule: "1",
+        },
+    
+        {
+          img: "https://i.ibb.co/2qYdCVc/Mern-stark.png",
+          courseName: "Mern Stack",
+          enrollDate: "Enrolled on 23 June, 2023",
+          time: "Last Read: Learn Mern Stack",
+          module: "154",
+          completedModule: "50",
+        },
+        {
+          img: "https://i.ibb.co/dcQynTD/ui-ux-design.png",
+          courseName: "UI/UX design",
+          enrollDate: "Enrolled on 12 may, 2023",
+          time: "Last Read: Introduction of UI/UX",
+          module: "154",
+          completedModule: "12",
+        },
+    
+        {
+          img: "https://i.ibb.co/VBJZcwK/data-science.png",
+          courseName: "Data Science",
+          enrollDate: "Enrolled on 12 may, 2023",
+          time: "Last Read: Learn Data Science",
+          module: "154",
+          completedModule: "1",
+        },
+    
+        {
+          img: "https://i.ibb.co/2qYdCVc/Mern-stark.png",
+          courseName: "Mern Stack",
+          enrollDate: "Enrolled on 23 June, 2023",
+          time: "Last Read: Learn Mern Stack",
+          module: "154",
+          completedModule: "50",
+        },
+    
+        {
+          img: "https://i.ibb.co/2qYdCVc/Mern-stark.png",
+          courseName: "Mern Stack",
+          enrollDate: "Enrolled on 23 June, 2023",
+          time: "Last Read: Learn Mern Stack",
+          module: "154",
+          completedModule: "50",
+        },
+      ];
+    
+      const recomendedCourseDetails = [
+        {
+          img: "https://i.ibb.co/CsLGHy8/image-38.png",
+          courseName: "UI/UX design",
+          lecture: "120 Lecture",
+          duration: "12hr duration",
+        },
+    
+        {
+          img: "https://i.ibb.co/CsLGHy8/image-38.png",
+          courseName: "Data Science",
+          lecture: "120 Lecture",
+          duration: "12hr duration",
+        },
+    
+        {
+          img: "https://i.ibb.co/CsLGHy8/image-38.png",
+          courseName: "Mern Stack",
+          lecture: "120 Lecture",
+          duration: "12hr duration",
+        },
+        {
+          img: "https://i.ibb.co/CsLGHy8/image-38.png",
+          courseName: "Mern Stack",
+          lecture: "120 Lecture",
+          duration: "12hr duration",
+        },
+        {
+          img: "https://i.ibb.co/CsLGHy8/image-38.png",
+          courseName: "Mern Stack",
+          lecture: "120 Lecture",
+          duration: "12hr duration",
+        }
+      ];
+    
+      const workshopCourseDetails = [
+        { 
+         "img" : "https://i.ibb.co/sH2NrNp/image-112.png",
+         "courseName" : "The Basics of UI/UX design principals",
+         "startDate" : "12 May, 2024",
+         "startTime" : "12 pm to 2 pm",
+         "startIn" : "02hr :01min"
+     },
+    
+        { 
+         "img" : "https://i.ibb.co/S08f1yk/image-113.png",
+         "courseName" : "The Basics of UI/UX design principals",
+         "startDate" : "12 May, 2024",
+         "startTime" : "12 pm to 2 pm",
+         "startIn" : "02hr :01min"
+     },
+    
+        { 
+         "img" : "https://i.ibb.co/BGGkVfx/image-114.png",
+         "courseName" : "The Basics of UI/UX design principals",
+         "startDate" : "12 May, 2024",
+         "startTime" : "12 pm to 2 pm",
+         "startIn" : "02hr :01min"
+     },
+    
+        { 
+         "img" : "https://i.ibb.co/BGGkVfx/image-114.png",
+         "courseName" : "The Basics of UI/UX design principals",
+         "startDate" : "12 May, 2024",
+         "startTime" : "12 pm to 2 pm",
+         "startIn" : "02hr :01min"
+     },
+     ]
 
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
+     
+  const [currentSlider, setCurrentSlider] = useState(0);
+  const [recomendedSlider, setRecomendedSlider] = useState(0);
+  const [workshopSlider, setWorkshopSlider] = useState(0);
+
+  const isSmallScreen = window.innerWidth <= 768;
+  const isMediumScreen = window.innerWidth >= 1064;
+
+  const prevSlider = (sliderName) => {
+    if (sliderName === "enrolledCourse") {
+      setCurrentSlider((currentSlider) =>
+        currentSlider === 0 ? 0 : currentSlider - 1
+      );
+    }else if(sliderName === "recomended"){
+        setRecomendedSlider((recomendedSlider) =>
+        recomendedSlider === 0 ? 0 : recomendedSlider - 1)
+        
+    }else if(sliderName === "workshop"){
+        setWorkshopSlider((workshopSlider) =>
+        workshopSlider === 0 ? 0 : workshopSlider - 1)
+    }
   };
 
+//   const nextSlider = () =>
+//     setCurrentSlider((currentSlider) =>
+//       currentSlider ===
+//       courseDetails.length - (isSmallScreen ? 1 : isMediumScreen ? 3 : 3)
+//         ? 0
+//         : currentSlider + 1
+//     );
+
+  const nextSlider = (sliderName,) => {
+    if (sliderName === "enrolledCourse") {
+        setCurrentSlider((currentSlider) =>
+      currentSlider ===
+      courseDetails.length - (isSmallScreen ? 1 : isMediumScreen ? 3 : 3)
+        ? 0
+        : currentSlider + 1
+    );
+      }else if(sliderName === "recomended"){
+        setRecomendedSlider((recomendedSlider) =>
+        recomendedSlider ===
+        recomendedCourseDetails.length - (isSmallScreen ? 1 : isMediumScreen ? 3 : 3)
+          ? 0
+          : recomendedSlider + 1
+      );
+          
+      }else if(sliderName === "workshop"){
+        setWorkshopSlider((workshopSlider) =>
+        workshopSlider ===
+        workshopCourseDetails.length - (isSmallScreen ? 1 : isMediumScreen ? 3 : 3)
+          ? 0
+          : workshopSlider + 1
+      );
+      }
+  }
+
+
+
+  //  const tabs = ["All", "In progress", "Yet to start", "Completed"];
+  const tabs = [
+    {
+      tabName: "All",
+      link: "tab1",
+    },
+    {
+      tabName: "In progress",
+      link: "tab2",
+    },
+    {
+      tabName: "Yet to start",
+      link: "tab3",
+    },
+    {
+      tabName: "Completed",
+      link: "tab4",
+    },
+  ];
+
   return (
-    <div>
-      <div className="mb-16">
-        <div className="">
-          <h1 className="text-[24px] text-[#F9F5FF] font-semibold mb-4">
-            Enrolled Courses
-          </h1>
-          <div className="bg-[#323133] w-full h-1"></div>
-        </div>
-        <div className="mt-6">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => handleTabChange("tab1")}
-                className={
-                  activeTab === "tab1"
-                    ? " rounded-lg h-9 py-2 px-5 border border-[#AEABB2] flex justify-center items-center text-[#F9F5FF]"
-                    : "h-9 py-2 px-5 rounded-lg border border-[#252526] flex justify-center items-center text-[#F9F5FF]"
-                }
-              >
-                All
-              </button>
+    <div className="">
+      <CoursePage
+        currentSlider={currentSlider}
+        btnpressprev={prevSlider}
+        btnpressnext={nextSlider}
+        tabs={tabs}
+        courseHeading={"Enrolled Courses"}
+        courseDetails={courseDetails}
+      ></CoursePage>
 
-              <button
-                onClick={() => handleTabChange("tab2")}
-                className={
-                  activeTab === "tab2"
-                    ? " rounded-lg h-9 py-2 px-5 border border-[#AEABB2] flex justify-center items-center text-[#F9F5FF]"
-                    : "h-9 py-2 px-5 rounded-lg border border-[#252526] flex justify-center items-center text-[#F9F5FF]"
-                }
-              >
-                In progress
-              </button>
+      <RecomendedCourse
+      recomendedCourseDetails={recomendedCourseDetails}
+        currentSlider={recomendedSlider}
+        btnpressprev={prevSlider}
+        btnpressnext={nextSlider}
+      ></RecomendedCourse>
 
-              <button
-                onClick={() => handleTabChange("tab3")}
-                className={
-                  activeTab === "tab3"
-                    ? " rounded-lg h-9 py-2 px-5 border border-[#AEABB2] flex justify-center items-center text-[#F9F5FF]"
-                    : "h-9 py-2 px-5 rounded-lg border border-[#252526] flex justify-center items-center text-[#F9F5FF]"
-                }
-              >
-                Yet to start
-              </button>
-
-              <button
-                onClick={() => handleTabChange("tab4")}
-                className={
-                  activeTab === "tab4"
-                    ? " rounded-lg h-9 py-2 px-5 border border-[#AEABB2] flex justify-center items-center text-[#F9F5FF]"
-                    : "h-9 py-2 px-5 rounded-lg border border-[#252526] flex justify-center items-center text-[#F9F5FF]"
-                }
-              >
-                Completed
-              </button>
-            </div>
-            <div className="flex items-center gap-6 text-[#F9F5FF] text-[24px]">
-              <svg
-                className="cursor-pointer hover:bg-[#246BFD] rounded transition duration-300"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M15 19.9201L8.48003 13.4001C7.71003 12.6301 7.71003 11.3701 8.48003 10.6001L15 4.08014"
-                  stroke="#F9F5FF"
-                  strokeWidth="1.5"
-                  strokeMiterlimit="10"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-
-              <svg
-                className="cursor-pointer hover:bg-[#246BFD] rounded transition duration-300"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M8.90997 19.9201L15.43 13.4001C16.2 12.6301 16.2 11.3701 15.43 10.6001L8.90997 4.08014"
-                  stroke="#F9F5FF"
-                  strokeWidth="1.5"
-                  strokeMiterlimit="10"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-
-          <div className="mt-8">
-            <div>
-              {activeTab === "tab1" && (
-                <div>
-                  <EnrolledCourseCard></EnrolledCourseCard>
-                </div>
-              )}
-
-              {activeTab === "tab2" && (
-                <div>
-                  <h1 className="text-white">This is tab2</h1>
-                </div>
-              )}
-
-              {activeTab === "tab3" && (
-                <div>
-                  <h1 className="text-white">This is tab3</h1>
-                </div>
-              )}
-
-              {activeTab === "tab4" && (
-                <div>
-                  <h1 className="text-white">This is tab4</h1>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <RecomendedCourse></RecomendedCourse>
+      <Workshop
+        currentSlider={workshopSlider}
+        btnpressprev={prevSlider}
+        btnpressnext={nextSlider}
+      ></Workshop>
     </div>
   );
 };
