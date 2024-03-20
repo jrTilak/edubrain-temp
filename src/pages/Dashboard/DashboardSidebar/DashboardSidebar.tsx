@@ -12,7 +12,7 @@ import Togglebtn from "../DashboardLayout/Togglebtn";
 
 const DashboardSidebar = () => {
   return (
-    <div className="">
+    <div className="z-10">
       <div className="drawer">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">

@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Outlet } from "react-router-dom";
+
 import DashboardHeader from "../DashboardHeader/DashboardHeader";
 import Sidebar from "./Sidebar";
 
