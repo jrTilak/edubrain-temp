@@ -1,12 +1,6 @@
-import heroImage from "@/assets/images/Hero Image.svg";
 import aboutUsImage from "@/assets/images/image 45.png";
-import { Link } from "react-router-dom";
 import DescriptionCard from "./DescriptionCard";
-import RaysLine1 from "@/assets/icons/rays-line-1.svg";
-import RaysLine2 from "@/assets/icons/rays-line-2.svg";
-import RaysLine3 from "@/assets/icons/rays-line-3.svg";
-import RaysLine4 from "@/assets/icons/rays-line-4.svg";
-import heroImageOverlay from "@/assets/images/hero image overlay.svg";
+
 import hearGlow from "@/assets/images/heart-glow.svg";
 import ABOUT_US from "@/assets/data/aboutUs";
 import CourseSection from "./CourseSection";
@@ -19,8 +13,11 @@ import Timeline from "./Timeline";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import PROCESS from "@/assets/data/process";
+import HeroSection from "./HeroSection";
+import { useInnerSize } from "@/hooks/useInnerSize";
 const Home = () => {
   const aboutUsRef = useRef(null);
+  const {width} = useInnerSize()
   const aboutUsInView = useInView(aboutUsRef, {
     once: true,
   });
@@ -30,90 +27,39 @@ const Home = () => {
   });
 
   return (
-    <div className=" flex flex-col gap-24 xl:gap-48 overflow-hidden">
-      {/* rays */}
-      <img
-        src={RaysLine1}
-        className="absolute top-[550px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] w-fit xl:top-[700px] left-0"
-        alt=""
-      />
-      <img
-        src={RaysLine2}
-        className="absolute top-[580px] sm:top-[500px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] w-fit xl:top-[220px] right-0"
-        alt=""
-      />
-      <img
-        src={RaysLine3}
-        className="absolute top-[820px] sm:top-[900px] lg:top[950px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] w-fit xl:top-[750px] right-0"
-        alt=""
-      />
-      <img
-        src={RaysLine4}
-        className="absolute w-[200px] sm:w-[500px] top-[2300px] sm:top-[2200px] h-[79.38px] sm:h-[132px] lg:h-[150px] xl:h-[189px] left-0"
-        alt=""
-      />
+    <div className="flex flex-col gap-[120px] xl:gap-48 overflow-hidden px-4 sm:px-10">
+      {/* rays  */}
+      {/* <RaysAndHighlights /> */}
 
       {/* // Hero Section */}
-      <section className="flex flex-col pt-[120px] justify-center items-center wrapper my-auto gap-12 xl:flex-row xl:gap-28">
-        <div className="gap-8 flex flex-col items-center xl:items-start">
-          <div className="flex flex-col gap-5 items-center justify-center text-center xl:text-start xl:items-start">
-            <h1 className="heading">
-              Discover the future
-              <br />
-              learning
-            </h1>
-            <span className="text-2xl text-[#F5F8FF] leading-[20.8px]">
-              AI Enhance courses for high paying job
-            </span>
-          </div>
-          <p className="p text-center xl:text-start max-w-[492px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatu
-          </p>
-          <Link
-            to="/dashboard/myCourse"
-            className="text-center bg-blue font-Roboto rounded-lg px-6 py-3 text-white w-full sm:max-w-[323px] xl:w-[250px] xl:max-w-none"
-          >
-            Explore Courses
-          </Link>
-        </div>
-        <div className="w-full aspect-[1.1/1] max-w-[650px] relative overflow-hidden">
-          <img
-            src={heroImage}
-            className="w-full z-10 object-contain object-center"
-            alt=""
-          />
-          {/* // overlay */}
-          <img
-            src={heroImageOverlay}
-            className="absolute -top-14 sm:inset-1/4 w-fit aspect-square h-[500px] object-contain object-center mix-blend-color-dodge z-20"
-            alt=""
-          />
-        </div>
-      </section>
-
+      <HeroSection />
       {/* //about us */}
-      <section className="flex flex-col items-center justify-center gap-12 wrapper">
+      <section
+        id="about"
+        className="flex flex-col items-center justify-center gap-12 sm:gap-16 xl:gap-28"
+      >
         <SectionHeader
           header="About us"
           title={ABOUT_US.title}
           desc={ABOUT_US.desc}
         />
-        <div className="flex items-center justify-center w-full xl:relative xl:min-h-[800px]">
+        <div className="flex items-center justify-center w-full xl:relative  xl:h-[800px]">
           <motion.div
-            ref={aboutUsRef}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={aboutUsInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-col px-4 gap-4 items-center xl:absolute xl:gap-[80px]"
+            {
+              ...(width > 1024 ? {
+                ref: aboutUsRef,
+                initial: { opacity: 0, scale: 0 },
+                animate: aboutUsInView ? { opacity: 1, scale: 1 } : {},
+                transition: { duration: 0.5, delay: 0.5 }
+              } : {})
+            }
+            className="flex flex-col px-4 gap-4 items-center xl:absolute xl:gap-[100px]"
           >
-            <div className="flex flex-col gap-4 md:flex-row xl:gap-[150px]">
+            <div className="flex flex-col gap-4 md:flex-row xl:gap-[242px]">
               <DescriptionCard {...ABOUT_US.cards[0]} />
               <DescriptionCard {...ABOUT_US.cards[1]} />
             </div>
-            <div className="flex flex-col gap-4 md:flex-row xl:gap-[400px]">
+            <div className="flex flex-col gap-4 md:flex-row xl:gap-[460px]">
               <DescriptionCard {...ABOUT_US.cards[2]} />
               <DescriptionCard {...ABOUT_US.cards[3]} />
             </div>
@@ -124,7 +70,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0 }}
             animate={aboutUsImgInView ? { opacity: 1, scale: 1 } : {}}
             src={aboutUsImage}
-            className="hidden xl:block z-40"
+            className="hidden xl:block z-40 w-[493px] h-[369.75px]"
           />
           {/* // hear glow at center  */}
           <img
@@ -136,7 +82,10 @@ const Home = () => {
       </section>
 
       {/* Our Courses */}
-      <section className="flex flex-col items-center justify-center wrapper overflow-hidden sm:overflow-visible">
+      <section
+        id="courses"
+        className="flex flex-col items-center justify-center overflow-hidden sm:overflow-visible "
+      >
         <SectionHeader
           header="Our Courses"
           title="Unlock Your Potential by our <br/> Tech Courses"
@@ -146,9 +95,12 @@ const Home = () => {
       </section>
 
       {/* Process  todo */}
-      <section className="flex flex-col items-center justify-center wrapper overflow-hidden sm:overflow-visible">
+      <section
+        id="process"
+        className="flex flex-col items-center justify-center gap-12 overflow-hidden wrapper sm:overflow-visible sm:gap-16 xl:gap-28"
+      >
         <SectionHeader header="Process" title="Your path to success" />
-        <div className=" text-white flex flex-col mt-20 ml-6 gap-12 max-w-5xl lg:ml-auto lg:mx-auto lg:mt-32">
+        <div className="flex flex-col max-w-5xl gap-12 ml-6 text-white lg:ml-auto lg:mx-auto">
           {PROCESS.map((timeline, i) => (
             <Timeline key={i} {...timeline} i={i} />
           ))}
@@ -156,9 +108,12 @@ const Home = () => {
       </section>
 
       {/* Certification  */}
-      <section className="flex flex-col items-center justify-center wrapper overflow-hidden sm:overflow-visible">
+      <section
+        id="certification"
+        className="flex flex-col items-center justify-center gap-12 overflow-hidden sm:gap-16 xl:gap-28"
+      >
         <SectionHeader {...CERTIFICATION_AND_ACHIEVEMENT} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mt-6">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 xl:gap-8">
           {CERTIFICATION_AND_ACHIEVEMENT.cards.map((card, i) => (
             <DescriptionCard key={i} {...card} />
           ))}

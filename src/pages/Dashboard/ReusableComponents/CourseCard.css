@@ -1,0 +1,11 @@
+.courseCardCarousel{
+    position: relative;
+    overflow: hidden;
+}
+
+.cardContainer{
+    display:flex;
+    gap: 20px;
+    overflow-x:scroll;
+    scroll-behavior: smooth;
+}
