@@ -1,8 +1,9 @@
+import React from 'react';
 import tick from '@/assets/images/tick-circle.svg';
 
-const Certification = () => {
+const Certification: React.FC = () => {
     // Array of certification points
-    const certificationPoints = [
+    const certificationPoints: string[] = [
         "Immerse yourself in a hands-on project mirroring real-world scenarios.",
         "Demonstrate your skills through our meticulously designed certification project.",
         "Receive valuable insights and guidance from industry experts to elevate your work.",
@@ -32,7 +33,7 @@ const Certification = () => {
                         </div>
                         <div className='text-white flex gap-2 flex-col py-10 max-sm:py-4'>
                             {/* Mapping through certification points */}
-                            {certificationPoints.map((point, index) => (
+                            {certificationPoints.map((point: string, index: number) => (
                                 <div key={index} className='flex gap-4'>
                                     <img src={tick} className='' alt="" />
                                     <p className='text-[20px] max-sm:text-[16px]'>{point}</p>

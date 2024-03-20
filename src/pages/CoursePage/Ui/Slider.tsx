@@ -4,7 +4,7 @@ import sliderImage from '@/assets/images/slider.svg';
 import slider01Image from '@/assets/images/Group 1456.svg';
 import slider02Image from '@/assets/images/Group 1459.svg';
 
-const SliderCard = () => {
+const SliderCard: React.FC = () => {
   return (
     <div className='py-16 overflow-hidden'>
       <div className='flex flex-col gap-4'>

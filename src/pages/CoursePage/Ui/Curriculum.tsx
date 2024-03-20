@@ -1,17 +1,17 @@
 import play from '@/assets/images/arrow-right.svg'
-import { useState, useRef, SetStateAction } from 'react';
+import { useState, useRef } from 'react';
 
 const Playlist = () => {
     return (
         <>
             <div className='flex justify-between gap-1'>
-                <div className='flex gap-1'>
+                <div className='flex gap-1 cursor-pointer'>
                     <img src={play} alt="play" />
-                    <span className='text-white'>UX Design vs UI Design</span>
+                    <span className='text-white text-[16px] max-sm:text-[14px]'>UX Design vs UI Design</span>
                 </div>
                 <div className='flex gap-10 max-sm:gap-1'>
                     <div className='bg-[#246BFD1A] rounded-xl'>
-                        <span className='text-[#246BFD] text-[10px] p-4'>Perview</span>
+                        <span className='text-[#246BFD] text-[10px] p-4 cursor-pointer'>Perview</span>
                     </div>
                     <div>
                         <span className='text-white max-sm:hidden'>9:52</span>
@@ -96,8 +96,8 @@ const Curriculum = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-center h-[700px]'>
-                <div className='flex justify-center py-10 px-6 max-sm:px-0 max-lg:flex-col '>
+            <div className='flex justify-center h-[600px]'>
+                <div className='flex justify-center  gap-12 max-sm:gap-4 px-6 max-sm:px-0 max-lg:flex-col '>
                     <div className=' flex flex-col gap-4 p-4 max-sm:p-0 max-xl:w-[400px]  w-[650px] max-lg:w-[740px] max-sm:w-[320px]'>
                         <div className='text-white flex flex-col '>
                             <span className='text-[48px] font-Lato font-500 max-sm:text-[24px] max-lg:text-[36px] max-lg:text-center max-sm:text-center'>Introduction to Design Principles </span>
@@ -114,10 +114,11 @@ const Curriculum = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className='bg-[#121721]  rounded-2xl w-[630px] max-xl:w-[400px] max-lg:w-[700px] max-sm:w-[300px] flex flex-col max-sm:ml-3 max-lg:ml-4  my-4 py-10 px-4 max-sm:px-1  gap-6  overflow-y-auto  scrollbar scrollbar-thumb-[#246BFD] scrollbar-track-white ' style={{ scrollbarWidth: 'thin', overflowY: 'auto', WebkitOverflowScrolling: 'touch', msOverflowStyle: '-ms-autohiding-scrollbar', scrollbarColor: '#246BFD transparent' }}>
+                  
+                    <div className='bg-[#121721]  rounded-2xl w-[630px] max-xl:w-[400px] max-lg:w-[700px] max-sm:w-[300px] flex flex-col max-sm:ml-3 max-lg:ml-4 px-4 max-sm:px-4   overflow-y-auto  scrollbar scrollbar-thumb-[#246BFD] scrollbar-track-white ' style={{ scrollbarWidth: 'thin', overflowY: 'auto', WebkitOverflowScrolling: 'touch', msOverflowStyle: '-ms-autohiding-scrollbar', scrollbarColor: '#246BFD transparent' }}>
                         {/* Repeat similar content for other videos */}
-                        <div className='flex flex-col gap-6 m-2'>
-                            <span ref={refs[0]} className='text-white text-[24px] py-2'>Color</span>
+                        <div className='flex flex-col  gap-4 py-6'>
+                            <span ref={refs[0]} className='text-white text-[24px]  py-2'>Color</span>
                             <Playlist />
                             <Playlist />
                             <Playlist />
@@ -143,7 +144,7 @@ const Curriculum = () => {
 
                 </div>
             </div>
-            <div className='flex justify-center'>
+            <div className='flex justify-center py-10'>
                 <div className='grid grid-cols-4 max-lg:grid-cols-2 gap-4'>
                     <div className='bg-[#121721]  p-8 px-16 flex flex-col rounded-xl border max-sm:px-10  max-sm:w-[150px]  border-[#2D2E30] '>
                         <span className='text-[48px] text-white flex justify-center max-sm:text-[24px]'>110+</span>

@@ -48,7 +48,7 @@ const FAQ: React.FC = () => {
           <FAQItem question="How do I reset my password?" answer="To reset your password, you can usually do so through the login page of the website or application. Look for an option like 'Forgot Password' or 'Reset Password,' and follow the instructions provided. You may need to verify your identity through email or other means." />
         </div>
       </div>
-      <div className='py-[100px]'>
+      <div className='py-10'>
         <div className='flex flex-col items-center'>
           <span className='text-[48px] font-700 font-Roboto text-white max-sm:text-[24px] '>Are you Ready to become</span>
           <span className='text-[48px] font-700 font-Roboto text-white max-sm:text-[24px]'>Master in UI/UX design ?</span>
