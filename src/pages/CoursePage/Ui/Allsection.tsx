@@ -31,6 +31,11 @@ const sections = [
         icon: proflie,
         title: "Creative Community",
         description: "Join a creative community for growth and enrichment."
+    },
+    {
+        icon: proflie,
+        title: "Creative Community",
+        description: "Join a creative community for growth and enrichment."
     }
 ];
 
@@ -51,7 +56,7 @@ const Allsection = () => {
                 </div>
             </div>
             <div className="flex justify-center m-2 py-[40px]">
-                <div className="grid grid-cols-3 justify-center gap-3">
+                <div className="grid grid-cols-3 max-sm:grid-cols-1 max-lg:grid-cols-2 justify-center gap-3">
                     {sections.map((section, index) => (
                         <div key={index} className="bg-[#121721] flex justify-center max-xl:w-[300px] flex-col rounded-xl w-[410px] h-[224px] max-lg:w-[322px] max-sm:w-[300px] gap-3 border border-[#2D2E30]">
                             <div className="flex justify-center">

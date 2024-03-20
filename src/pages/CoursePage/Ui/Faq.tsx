@@ -14,7 +14,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => { // Receive a
   };
 
   return (
-    <div className='flex flex-col border w-[845px] max-lg:w-[625px] max-sm:w-[300px] border-[#313233] p-3 rounded-xl'>
+    <div  onClick={toggleExpanded} className='flex flex-col border w-[845px] max-lg:w-[625px] max-sm:w-[300px] border-[#313233] p-3 rounded-xl'>
       <div className='faq-item  flex justify-between'>
         <span className='text-[24px] font-Roboto font-400 max-sm:text-[16px]'>{question}</span>
         <img src={add} alt="Add" onClick={toggleExpanded} className={expanded ? 'rotate-45' : ''} />

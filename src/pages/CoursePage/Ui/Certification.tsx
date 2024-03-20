@@ -34,7 +34,7 @@ const Certification = () => {
                             {/* Mapping through certification points */}
                             {certificationPoints.map((point, index) => (
                                 <div key={index} className='flex gap-4'>
-                                    <img src={tick} className='w-[50px]' alt="" />
+                                    <img src={tick} className='' alt="" />
                                     <p className='text-[20px] max-sm:text-[16px]'>{point}</p>
                                 </div>
                             ))}

@@ -1,41 +1,69 @@
 import play from '@/assets/images/arrow-right.svg'
-import { useState ,useRef, SetStateAction } from 'react';
+import { useState, useRef, SetStateAction } from 'react';
 
+const Playlist = () => {
+    return (
+        <>
+            <div className='flex justify-between gap-1'>
+                <div className='flex gap-1'>
+                    <img src={play} alt="play" />
+                    <span className='text-white'>UX Design vs UI Design</span>
+                </div>
+                <div className='flex gap-10 max-sm:gap-1'>
+                    <div className='bg-[#246BFD1A] rounded-xl'>
+                        <span className='text-[#246BFD] text-[10px] p-4'>Perview</span>
+                    </div>
+                    <div>
+                        <span className='text-white max-sm:hidden'>9:52</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <hr className='bg-white' />
+            </div>
+        </>
 
+    )
+}
 const Curriculum = () => {
-    
 
-    const buttonRef = useRef<HTMLDivElement | null>(null)
+    const [activeIndex, setActiveIndex] = useState<number | null>(0);
+    const [activeIndex1, setActiveIndex1] = useState<number | null>(0);
 
-    const [activeIndex, setActiveIndex] = useState(null);
-    const [activeIndex1, setActiveIndex1] = useState(null);
+    // Dynamically create refs based on the number of items
+    const numberOfItems = 4; // Update with the actual number of items
+    const refs = Array.from({ length: numberOfItems }, () => useRef<HTMLDivElement | null>(null));
 
-    // Function to handle clicking on a list item
-    const handleClick = (index: number | SetStateAction<null>) => {
+    const handleClick = (index: number) => {
         setActiveIndex(index === activeIndex ? null : index);
         setActiveIndex1(index === activeIndex1 ? null : index);
-        buttonRef.current?.scrollIntoView({
-            behavior:'smooth'
-        })
-
+        scrollIntoViewIfNeeded(refs[index]);
     };
 
-    // Function to determine if a list item is active
     const isActive = (index: number | null) => {
         return index === activeIndex ? "text-[36px] text-[#246BFD]" : "text-[24px]";
     };
 
-
-    // Function to handle clicking on a part
-    const handlePartClick = (index) => {
-        setActiveIndex(index === activeIndex ? null : index);
-        setActiveIndex1(index === activeIndex1 ? null : index);
-    };
-
-    // Function to determine if a part is active
-    const isActivePart1 = (index) => {
+    const isActivePart1 = (index: number) => {
         return index === activeIndex1 ? "border-[#246BFD] text-[16px] text-[#246BFD]" : "border-[#252526] text-[16px]";
     };
+
+    const handlePartClick = (index: number) => {
+        setActiveIndex(index === activeIndex ? null : index);
+        setActiveIndex1(index === activeIndex1 ? null : index);
+        scrollIntoViewIfNeeded(refs[index]);
+    };
+
+    const scrollIntoViewIfNeeded = (ref: React.RefObject<HTMLDivElement>) => {
+        ref.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start', // Scroll to the top of the element
+        });
+    };
+
+    // Example usage of the refs in your JSX
+
+
 
     return (
         <div className='py-16 p-2'>
@@ -45,14 +73,14 @@ const Curriculum = () => {
                         <span className='font font-400 text-[#246BFD] font-Lato text-[24px]'>Curriculum</span>
                     </div>
                     <div className='flex justify-center'>
-                        <span className='text-[48px] font-900 pt-0 text-white text-center max-sm:text-[24px]'> Your Learning Journey</span>
+                        <span className='text-[48px] font-900 pt-0 text-white text-center max-sm:text-[24px] leading-none'> Your Learning Journey</span>
                     </div>
                     <div className='flex justify-center'>
-                        <p className='text-[36px]  pt-0 text-white text-center max-sm:text-[24px]'>Navigating the UI/UX Design Curriculum</p>
+                        <p className='text-[36px]  pt-0 text-white text-center max-sm:text-[24px] leading-none'>Navigating the UI/UX Design Curriculum</p>
                     </div>
                 </div>
             </div>
-            <div className='flex  max-lg:pl-0 max-md:pl-0 max-lg:justify-center gap-8 max-sm:gap-2 '>
+            <div className='flex py-10 max-lg:pl-0 max-md:pl-0 max-lg:justify-center gap-8 max-sm:gap-2 '>
                 <div className='flex pl-[110px] max-lg:pl-0 max-md:pl-0 max-lg:justify-center gap-8 max-sm:gap-2 '>
                     <div className={`border px-10 max-sm:px-3 py-2 rounded-xl cursor-pointer ${isActivePart1(0)}`} onClick={() => handlePartClick(0)}>
                         <span className='text-[24px] max-sm:text-[14px]'>Part-1</span>
@@ -68,14 +96,14 @@ const Curriculum = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-center'>
+            <div className='flex justify-center h-[700px]'>
                 <div className='flex justify-center py-10 px-6 max-sm:px-0 max-lg:flex-col '>
                     <div className=' flex flex-col gap-4 p-4 max-sm:p-0 max-xl:w-[400px]  w-[650px] max-lg:w-[740px] max-sm:w-[320px]'>
                         <div className='text-white flex flex-col '>
                             <span className='text-[48px] font-Lato font-500 max-sm:text-[24px] max-lg:text-[36px] max-lg:text-center max-sm:text-center'>Introduction to Design Principles </span>
                         </div>
                         <div className=' text-white  flex justify-center'>
-                            <p className=' max-sm:text-[16px] max-lg:text-center max-sm:ml-3 max-lg: max-sm:pb-10 p-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu</p>
+                            <p className=' max-sm:text-[16px] max-lg:text-center text-[#ABAEB2] max-sm:ml-3 max-sm:text-left max-lg: max-sm:pb-10 p-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu</p>
                         </div>
                         <div className='text-white py-6 max-lg:hidden'>
                             <ul className='list-disc pl-8 text-[24px] flex flex-col gap-5 cursor-pointer'>
@@ -86,288 +114,33 @@ const Curriculum = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className='bg-[#121721] rounded-2xl  w-[630px] max-xl:w-[400px] max-lg:w-[700px]  max-sm:w-[300px] max-sm:mx-0 max-sm:ml-3 max-sm:m-3 max-sm:p-0 max-sm:my-2 h-[600px] py-4 px-4 max-sm:px-1 mx-10 flex flex-col gap-5  overflow-y-auto  scrollbar scrollbar-thumb-[#246BFD] scrollbar-track-white ' style={{ scrollbarWidth: 'thin', overflowY: 'auto', WebkitOverflowScrolling: 'touch', msOverflowStyle: '-ms-autohiding-scrollbar', scrollbarColor: '#246BFD transparent' }}>
+                    <div className='bg-[#121721]  rounded-2xl w-[630px] max-xl:w-[400px] max-lg:w-[700px] max-sm:w-[300px] flex flex-col max-sm:ml-3 max-lg:ml-4  my-4 py-10 px-4 max-sm:px-1  gap-6  overflow-y-auto  scrollbar scrollbar-thumb-[#246BFD] scrollbar-track-white ' style={{ scrollbarWidth: 'thin', overflowY: 'auto', WebkitOverflowScrolling: 'touch', msOverflowStyle: '-ms-autohiding-scrollbar', scrollbarColor: '#246BFD transparent' }}>
                         {/* Repeat similar content for other videos */}
-                        <span className='text-white text-[24px] '>Color</span>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
+                        <div className='flex flex-col gap-6 m-2'>
+                            <span ref={refs[0]} className='text-white text-[24px] py-2'>Color</span>
+                            <Playlist />
+                            <Playlist />
+                            <Playlist />
+                            <Playlist />
+                            <span ref={refs[1]} className='text-white text-[24px] py-2'>Typography</span>
+                            <Playlist />
+                            <Playlist />
+                            <Playlist />
+                            <Playlist />
+                            <span ref={refs[2]} className='text-white text-[24px] py-2'>Button</span>
+                            <Playlist />
+                            <Playlist />
+                            <Playlist />
+                            <Playlist />
+                            <span ref={refs[3]} className='text-white text-[24px] py-2'>Image</span>
+                            <Playlist />
+                            <Playlist />
+                            <Playlist />
+                            <Playlist />
                         </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                         {/* Repeat similar content for other videos */}
-                         <span className='text-white text-[24px]'>Typography</span>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                         {/* Repeat similar content for other videos */}
-                         <span ref={buttonRef} className='text-white text-[24px]'>Button</span>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                         {/* Repeat similar content for other videos */}
-                         <span className='text-white text-[24px]'>Image</span>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
-                        <div className='flex justify-between gap-1'>
-                            <div className='flex gap-1'>
-                                <img src={play} alt="play" />
-                                <span className='text-white'>UX Design vs UI Design</span>
-                            </div>
-                            <div className='flex gap-10 max-sm:gap-1'>
-                                <div className='bg-[#246BFD1A] rounded-xl'>
-                                    <span className='text-[#246BFD] p-4'>Perview</span>
-                                </div>
-                                <div>
-                                    <span className='text-white max-sm:hidden'>9:52</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <hr className='bg-white' />
-                        </div>
+
                     </div>
+
                 </div>
             </div>
             <div className='flex justify-center'>
