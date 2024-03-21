@@ -87,7 +87,21 @@ const CoursePage = ({courseDetails, courseHeading, tabs}) => {
                     {
                         activeTab === "tab1" && (
                             <div className="flex items-center min-h-[300px]">
-                                <CourseCard currentSlider={currentSlider} courseDetails={courseDetails}></CourseCard>
+                                <div className="overflow-hidden">
+                    <div className="flex justify-between items-center">
+                      <div
+                        className="ease-linear duration-300 flex gap-6"
+                        style={{
+                          transform: `translateX(-${currentSlider * 342}px)`,
+                        }}
+                      >
+                        {courseDetails &&
+                          courseDetails.map((cd, ind) => (
+                            <CourseCard key={ind} details={cd} />
+                          ))}
+                      </div>
+                    </div>
+                  </div>
                             </div>
                         )
                     }

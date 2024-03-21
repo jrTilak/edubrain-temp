@@ -183,14 +183,11 @@ const EnrolledCourse = () => {
 
   return (
     <div className="">
-      {courseDetails.map((course, index) => (
-        <CoursePage
-          key={index}
-          tabs={tabs}
-          courseHeading={"Enrolled Courses"}
-          courseDetails={[course]}
-        />
-      ))}
+      <CoursePage
+        tabs={tabs}
+        courseHeading={"Enrolled Courses"}
+        courseDetails={courseDetails}
+      ></CoursePage>
 
       <CoursePage
         courseDetails={recomendedCourseDetails}
